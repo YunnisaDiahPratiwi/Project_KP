@@ -41,16 +41,32 @@
                                         <div class="align-items-center justify-content-center d-flex" >
                                             <img src="{{ asset('img/logo.png') }}" width="220" alt="Deskripsi gambar">
                                         </div>
-                                        <form class="user">
+                                        <form class="user" method="POST" action="{{route('loginProses')}}">
+                                        @csrf
+
+                                        {{-- nama --}}
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
-                                                placeholder="Enter Username" name="name">
+                                            <input type="name" class="form-control form-control-user @error('name') is-invalid @enderror"
+                                                placeholder="Enter Username" name="name" value="{{old('name')}}">
+                                                @error('name')
+                                                    <small class="text-danger">
+                                                        {{$message}}
+                                                    </small>
+                                                @enderror
                                         </div>
+
+                                        {{-- password --}}
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
                                                 placeholder="Password" name="password">
+                                                @error('password')
+                                                    <small class="text-danger">
+                                                        {{$message}}
+                                                    </small>
+                                                @enderror
                                         </div>
-                                        <button type="submit" href="#" class="btn btn-primary btn-user btn-block">
+
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>
