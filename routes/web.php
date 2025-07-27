@@ -10,15 +10,20 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-//dashboard
-Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+
 
 //login
 Route::get('login',[AuthController::class,'login'])->name('login');
 Route::post('login',[AuthController::class,'loginProses'])->name('loginProses');
 
-//user
-Route::get('device',[DeviceController::class,'device'])->name('device');
+Route::middleware('checkLogin')->group(function(){
+    //dashboard
+    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 
-//tugas
-Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');
+    //user
+    Route::get('device',[DeviceController::class,'device'])->name('device');
+
+    //bar
+    Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');
+});
+

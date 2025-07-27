@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -19,5 +20,16 @@ class AuthController extends Controller
             'password.required' => 'Password Tidak Boleh Kosong',
             'password.min' => 'Password Minimal 8 Karakter',
         ]);
+
+        $data = array(
+            'name'      => $request->name,
+            'password'      => $request->password,
+        );
+
+        if (Auth::attempt($data)) {
+            return redirect()->route('dashboard');
+        }else{
+            return redirect()->back()->with('error','Username atau Password Salah');
+        }
     }
 }
