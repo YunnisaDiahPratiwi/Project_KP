@@ -1,0 +1,178 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #fdf5ef;
+  color: #222;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+.btn-login {
+  padding: 0.4rem 1rem;
+  background-color: #2d1d61;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hero {
+  background: url('/img/bylt.jpeg') center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .hero-overlay {
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+} */
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Rata kiri */
+  padding-left: 4rem;       /* Tambahkan padding kiri */
+  padding-right: 4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: left;         /* Rata kiri untuk teks */
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  background-color: transparent; /* Biar isi tombol transparan */
+  border: 2px solid #EA6C2C;      /* Warna garis pinggir (misalnya oranye) */
+  color: #EA6C2C;                /* Warna teks */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border-radius: 28px;
+}
+
+.btn-primary {
+  padding: 0.6rem 1.5rem;
+  background-color: #2d1d61;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.about, .story, .team {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.service-box {
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.orange { background-color: #ff7f50; }
+.navy { background-color: #2d1d61; }
+
+.motto {
+  background-color: #f3661c;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.member {
+  text-align: center;
+}
+
+.member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer {
+  background-color: #6c3d2d;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.footer-box {
+  background-color: #fff2e2;
+  width: 20%;
+  height: 80px;
+  border-radius: 10px;
+}
+.logo img {
+    height: 50px;           /* Atur tinggi logo */
+    width: auto;            /* Biar proporsional */
+    vertical-align: middle; /* Sejajarkan secara vertikal */
+}
