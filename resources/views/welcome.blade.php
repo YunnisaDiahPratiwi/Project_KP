@@ -32,61 +32,110 @@
   </section>
 
   <!-- About Us Section -->
-  <section class="about">
-    <div class="container">
-      <h2>IT Support Cepat dan Tepat <br> untuk Mendukung Kinerja Setiap Divisi</h2>
-      <p>Divisi IT Balai Yasa Lahat merupakan unit yang bertanggung jawab atas pengelolaan dan pengembangan teknologi informasi di lingkungan kerja Balai Yasa Lahat. Kami menyediakan layanan teknis mulai dari perawatan jaringan, pengelolaan sistem, hingga dukungan troubleshooting perangkat untuk mendukung kelancaran operasional perusahaan.</p>
+  <section class="about-us-section">
+    <div class="about-us-container">
+        <div class="about-us-content">
+        <h4>ABOUT US</h4>
+        <h2>IT Support Cepat dan Tepat <br> untuk Mendukung Kinerja Setiap Divisi</h2>
+        <p>
+            Divisi IT Balai Yasa Lahat merupakan unit yang bertanggung jawab atas pengelolaan dan pengembangan teknologi informasi di lingkungan kerja Balai Yasa Lahat. Kami menyediakan layanan teknis mulai dari perawatan jaringan, pengelolaan sistem, hingga dukungan troubleshooting perangkat untuk mendukung kelancaran operasional perkeretaapian. Komitmen kami adalah memberikan layanan IT yang cepat, akurat, dan terpercaya.
+        </p>
+        </div>
+        <div class="about-us-image">
+        <img src="{{ asset('img/cctv.jpg') }}" alt="IT Support Team">
+        </div>
     </div>
-  </section>
+    <br><br><br>
 
-  <!-- Services -->
-  <section class="services">
-    <div class="service-box orange">Maintenance Komputer</div>
-    <div class="service-box navy">Pemasangan & Perawatan Starlink</div>
-    <div class="service-box orange">Perbaikan & Pemasangan CCTV</div>
-    <div class="service-box navy">Maintenance Jaringan Internet</div>
-  </section>
-
-  <!-- Motto Section -->
-  <section class="motto">
-    <p>Dari Instalasi hingga Inovasi Setiap Sistem yang Kami Bangun Adalah Langkah Menuju Operasional yang Lebih Unggul</p>
-  </section>
-
-  <!-- Our Story -->
-  <section class="story">
-    <div class="container">
-      <h3>Our Story</h3>
-      <p>Seiring dengan berkembangnya kebutuhan digital di lingkungan perkeretaapian, Divisi IT Balai Yasa Lahat hadir sebagai garda terdepan dalam mendukung transformasi teknologi...</p>
+    <div class="service-cards-container">
+        <div class="service-card orange">
+        <span class="number">1</span>
+        <h3>Maintenance Komputer</h3>
+        <p>Perbaikan, upgrade perangkat keras, instalasi software, dan optimasi kinerja komputer di lingkungan kerja.</p>
+        </div>
+        <div class="service-card dark-blue">
+        <span class="number">2</span>
+        <h3>Pemasangan & Perawatan Starlink</h3>
+        <p>Menyediakan pemasangan serta pemeliharaan koneksi internet berbasis satelit Starlink untuk area kerja yang membutuhkan konektivitas tinggi.</p>
+        </div>
+        <div class="service-card orange">
+        <span class="number">3</span>
+        <h3>Perbaikan & Pemasangan CCTV</h3>
+        <p>Instalasi dan troubleshooting sistem CCTV untuk mendukung keamanan dan pengawasan area Balai Yasa.</p>
+        </div>
+        <div class="service-card dark-blue">
+        <span class="number">4</span>
+        <h3>Maintenance Jaringan Internet</h3>
+        <p>Pemeliharaan infrastruktur jaringan LAN/WAN, perbaikan koneksi, serta penataan ulang kabel dan perangkat jaringan.</p>
+        </div>
     </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="team">
-    <h3>Team Divisi IT</h3>
-    <div class="team-members">
-      <div class="member">
-        <img src="imam.jpg" alt="Imam Anugrah">
-        <p><strong>Imam Anugrah</strong><br>Team Leader Infrastructure Support</p>
-      </div>
-      <div class="member">
-        <img src="fery.jpg" alt="Fery Ardiansah">
-        <p><strong>Fery Ardiansah</strong><br>Assistant Manager Sistem Informasi</p>
-      </div>
-      <div class="member">
-        <img src="ares.jpg" alt="Ares Pambudi">
-        <p><strong>Ares Pambudi</strong><br>Team Leader Infrastructure Support</p>
-      </div>
+    {{-- </section>
+    <section> --}}
+        <div class="about-us-footer">
+        <div class="about-us-footer-overlay">
+            <h2>Dari Instalasi hingga Inovasi Setiap Sistem yang Kami Bangun Adalah Langkah Menuju Operasional yang Lebih Unggul</h2>
+        </div> 
     </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-box"></div>
-    <div class="footer-box"></div>
-    <div class="footer-box"></div>
-    <div class="footer-box"></div>
-  </footer>
 
+  <!-- OUR STORY -->
+    <section class="our-story-section">
+    <div class="our-story-container">
+        <div class="our-story-image">
+            <div class="gambar-besar">
+                 <img src="img/depan balaiyasa.jpg" alt="our team">
+            </div>
+            <div class="gambar-kecil">
+                 <img src="img/depan kereta.jpg" alt="our team 2">
+            </div>
+        </div>
+        <div class="our-story-content">
+        <h4>OUR STORY</h4>
+        <p>
+            Seiring dengan berkembangnya kebutuhan digital di lingkungan perkeretaapian, Divisi IT Balai Yasa Lahat hadir sebagai garda terdepan dalam mendukung transformasi teknologi. Kami memulai perjalanan dari kebutuhan dasar perawatan sistem komputer dan jaringan internal, hingga kini dipercaya menangani berbagai proyek strategis seperti pemasangan Starlink, sistem keamanan CCTV, dan pengembangan sistem internal.
+        </p>
+        </div>
+    </div>
+    </section>
+
+      <!-- OUR TEAM Section -->
+    <section class="our-team-section">
+        <div class="our-team-header">
+        {{-- <img src="{{ asset('img/Vector.png') }}" alt="Team Icon" class="team-icon">
+        <h3 class="subheading">OUR TEAM</h3> --}}
+        <h2>Team Divisi IT</h2>
+        </div>
+        <div class="our-team-container">
+        <div class="team-member">
+            <img src="{{ asset('img/pak imam.jpg') }}" alt="Imam Anugrah">
+            <h4><strong>Imam Anugrah</strong></h4>
+            <p>Team Leader Infrastructure Support</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ asset('img/pak fery.jpg') }}" alt="Fery Ardiansah">
+            <h4><strong>Fery Ardiansah</strong></h4>
+            <p>Asistant Manager Sistem Informasi</p>
+        </div>
+        <div class="team-member">
+            <img src="{{ asset('img/pak imam.jpg') }}" alt="Ares Pambudi Arto">
+            <h4><strong>Ares Pambudi Arto</strong></h4>
+            <p>Team Leader Infrastructure Support</p>
+        </div>
+        </div>
+    </section>
+
+    <!-- CONTACT Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+        <div class="contact-card"></div>
+        <div class="contact-card"></div>
+        <div class="contact-card"></div>
+        </div>
+    </section>
+
+
+  
   <script src="script.js"></script>
 </body>
 </html>
