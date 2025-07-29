@@ -21,17 +21,16 @@
     <link href="{{asset('sdadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
+
 <body class="bg-gradient-primary" style="background: url('{{ asset('img/bylt.jpeg') }}') no-repeat center center fixed; background-size: cover; position: relative;">
-<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0.701);z-index:0;"></div>
 
-{{-- <body class="bg-gradient-primary"> --}}
-
-    <div class="container">
+    <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0, 0, 0, 0.701);z-index:0;"></div>
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-6 col-lg-7 col-md-8" style="margin-top: 5%">
+            <div class="col-xl-6 col-lg-7 col-md-8">
+
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
@@ -73,7 +72,7 @@
                                         <hr>
                                         <div class="text-center">
                                             <small>
-                                                Kembali Ke Beranda? 
+                                                Kembali Ke Beranda?
                                                 <a href="#">Klik Disini</a>
                                             </small>
                                         </div>
@@ -117,7 +116,7 @@
         });
         </script>
     @endsession
-    
+
 
 </body>
 
