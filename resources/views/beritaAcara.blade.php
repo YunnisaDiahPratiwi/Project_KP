@@ -10,7 +10,7 @@
             <div class="mb-1 mr-2">
                 <a href="#" class="btn btn-sm btn-primary">
                     <i class="fas fa-plus mr-2"></i>
-                    Tambah Perangkat
+                    Tambah Data
                 </a>
             </div>
             <div>
@@ -18,7 +18,7 @@
                     <i class="fas fa-file-excel mr-2"></i>
                     Excel
                 </a>
-            
+
                 <a href="#" class="btn btn-sm btn-danger">
                     <i class="fas fa-file-excel mr-2"></i>
                     PDF
@@ -68,5 +68,5 @@
             </table>
         </div>
         </div>
-    </div>    
+    </div>
 @endsection

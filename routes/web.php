@@ -24,10 +24,12 @@ Route::middleware('checkLogin')->group(function(){
     //dashboard
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 
-    //user
+    //device
     Route::get('device',[DeviceController::class,'device'])->name('device');
+    Route::get('device/createDevice',[DeviceController::class,'createDevice'])->name('createDevice');
+    Route::post('device/store',[DeviceController::class,'store'])->name('storeDevice');
 
-    //bar
+    //berita acara
     Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');
 });
 
