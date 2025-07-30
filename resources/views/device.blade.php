@@ -18,7 +18,7 @@
                     <i class="fas fa-file-excel mr-2"></i>
                     Excel
                 </a>
-            
+
                 <a href="#" class="btn btn-sm btn-danger">
                     <i class="fas fa-file-excel mr-2"></i>
                     PDF
@@ -41,24 +41,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="#" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($devices as $index => $device)
+                        <tr>
+                            <td class="text-center">{{ $index + 1 }}</td>
+                            <td>{{ $device->it_asset }}</td>
+                            <td>{{ $device->ram }}</td>
+                            <td>{{ $device->storage }}</td>
+                            <td>{{ $device->processor }}</td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
         </div>
-    </div>    
+    </div>
 @endsection

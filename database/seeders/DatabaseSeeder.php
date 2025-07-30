@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
             'name'      => 'Teknisi',
             'password'  => Hash::make('12345678'),
         ]);
+
+        $this->call([
+            DeviceSeeder::class,
+        ]);
+
     }
 }
