@@ -14,25 +14,25 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#" class="btn-primary" style="color: white">Login</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about-us-section">About</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+        <li><a href="{{route('login')}}" class="btn-primary" style="color: white">Login</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-overlay">
       <h1>WELCOME TO DIVISI IT <br> UPT BALAI YASA LAHAT</h1>
       <p class="tagline">Safety and Sustainable</p><br><br>
-      <a href="#" class="btn-primary">Login as Staff IT</a>
+      <a href="{{route('login')}}" class="btn-primary">Login as Staff IT</a>
     </div>
   </section>
 
   <!-- About Us Section -->
-  <section class="about-us-section">
+  <section class="about-us-section" id="about-us-section">
     <div class="about-us-container">
         <div class="about-us-content">
         <h4>ABOUT US</h4>
@@ -125,17 +125,21 @@
         </div>
     </section>
 
-    <!-- CONTACT Section -->
-    <section class="contact-section">
-        <div class="contact-container">
-        <div class="contact-card"></div>
-        <div class="contact-card"></div>
-        <div class="contact-card"></div>
-        </div>
-    </section>
 
 
   
   <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

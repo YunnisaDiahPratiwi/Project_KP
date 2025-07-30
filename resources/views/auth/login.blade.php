@@ -74,7 +74,7 @@
                                         <div class="text-center">
                                             <small>
                                                 Kembali Ke Beranda?
-                                                <a href="#">Klik Disini</a>
+                                                <a href="{{route('welcome')}}">Klik Disini</a>
                                             </small>
                                         </div>
                                     </div>

@@ -4,6 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -120,20 +124,7 @@ body {
   object-fit: cover;
 }
 
-.footer {
-  background-color: #6c3d2d;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-around;
-  padding: 2rem;
-}
 
-.footer-box {
-  background-color: #fff2e2;
-  width: 20%;
-  height: 80px;
-  border-radius: 10px;
-}
 
 /* logo */
 .logo img {
@@ -422,22 +413,3 @@ body {
   margin-left: 50px;
 }
 
-/* CONTACT */
-.contact-section {
-  background-color: #5d2c10; /* coklat tua */
-  padding: 80px 20px;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.contact-card {
-  background-color: #fff2e9;
-  width: 300px;
-  height: 200px;
-  border-radius: 12px;
-}
