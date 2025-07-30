@@ -28,6 +28,9 @@ Route::middleware('checkLogin')->group(function(){
     Route::get('device',[DeviceController::class,'device'])->name('device');
     Route::get('device/createDevice',[DeviceController::class,'createDevice'])->name('createDevice');
     Route::post('device/store',[DeviceController::class,'store'])->name('storeDevice');
+    Route::get('device/edit/{id}',[DeviceController::class,'edit'])->name('editDevice');
+    Route::post('device/update/{id}',[DeviceController::class,'update'])->name('updateDevice');
+    Route::delete('device/destroy/{id}',[DeviceController::class,'destroy'])->name('deleteDevice');
 
     //berita acara
     Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');

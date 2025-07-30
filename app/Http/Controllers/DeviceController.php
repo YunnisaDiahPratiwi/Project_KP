@@ -22,6 +22,7 @@ class DeviceController extends Controller
         );
         return view('createDevice', $data);
     }
+
     public function store(Request $request){
         $request->validate([
             'it_asset'  => 'required|unique:devices,it_asset',
@@ -37,13 +38,51 @@ class DeviceController extends Controller
             'processor.required' => 'Processor tidak boleh kosong.',
         ]);
 
-        $device = new Device();
+        Device::create($request->all());
+
+        return redirect()->route('device')->with('success', 'Data perangkat berhasil ditambahkan.');
+    }
+
+
+    public function edit($id){
+        $device = Device::findOrFail($id);
+        $data = array(
+            'title'         => 'Edit Data Perangkat',
+            'menuDevice'    => 'active',
+            'device'        => $device,
+        );
+        return view('edit', $data);
+    }
+
+        public function update(Request $request, $id){
+        $request->validate([
+            'it_asset'  => 'required|unique:devices,it_asset, '.$id,
+            'ram'       => 'required',
+            'storage'   => 'required',
+            'processor' => 'required',
+        ],
+        [
+            'it_asset.required'  => 'IT Asset tidak boleh kosong.',
+            'it_asset.unique'    => 'IT Asset sudah ada.',
+            'ram.required'       => 'RAM tidak boleh kosong.',
+            'storage.required'   => 'Storage tidak boleh kosong.',
+            'processor.required' => 'Processor tidak boleh kosong.',
+        ]);
+
+        $device = Device::findOrFail($id);
         $device->it_asset  = $request->it_asset;
         $device->ram       = $request->ram;
         $device->storage   = $request->storage;
         $device->processor = $request->processor;
         $device->save();
 
-        return redirect()->route('device')->with('success', 'Data perangkat berhasil ditambahkan.');
+        return redirect()->route('device')->with('success', 'Data perangkat berhasil diedit.');
+    }
+
+    public function destroy($id){
+        $device = Device::findOrFail($id);
+        $device->delete();
+
+        return redirect()->route('device')->with('success', 'Data perangkat berhasil dihapus.');
     }
 }
