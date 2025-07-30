@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Divisi IT - Balai Yasa Lahat</title>
   <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
   <!-- Navbar -->
@@ -16,7 +18,7 @@
       <ul>
         <li><a href="#hero">Home</a></li>
         <li><a href="#about-us-section">About</a></li>
-        <li><a href="#contact-section">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li><a href="{{route('login')}}" class="btn-primary" style="color: white">Login</a></li>
       </ul>
     </nav>
@@ -125,9 +127,31 @@
         </div>
     </section>
 
+    {{-- contact --}}
+    <section class="contact" id="contact" style="background-color: #2c2474; color: #fff; padding: 70px 20px;">
+      <div style="display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;">
+        <div style="  background-color: #f9ede7;border-radius: 12px;padding: 20px;width: 300px;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);text-align: left;color: #000;">
+          <i class="fas fa-phone-alt" style="font-size: 28px;color: #2c2474;margin-bottom: 10px;"></i>
+          <h3 style="color: #2c2474">Call Center</h3>
+          <p style="color: #2c2474">121 (dari telepon seluler)<br>atau (021) 121</p>
+        </div>
+        <div style="  background-color: #f9ede7;border-radius: 12px;padding: 20px;width: 300px;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);text-align: left;color: #000;">
+          <i class="fas fa-envelope" style=" font-size: 28px;color: #2c2474;margin-bottom: 10px;"></i>
+          <h3 style="color: #2c2474">Send Email</h3>
+          <p style="color: #2c2474">Divisi IT : ITbylt@gmail.com<br>Support : informationbylt@gmail.com</p>
+        </div>
+        <div style="  background-color: #f9ede7;border-radius: 12px;padding: 20px;width: 300px;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);text-align: left;color: #000;">
+          <i class="fas fa-map-marker-alt" style=" font-size: 28px;color: #2c2474;margin-bottom: 10px;"></i>
+          <h3 style="color: #2c2474">Visit a Office</h3>
+          <p style="color: #2c2474">Jl. Inspektur Yazid No.1, Lahat, Kabupaten Lahat,<br>Sumatera Selatan 31417, Indonesia</p>
+        </div>
+      </div>
+      <br><br>
+      <footer style="text-align: center;color: white;font-size: 13px;padding: 0px;background-color: #2c2474;">
+        <p>Copyright © 2025 UPT Balai Yasa Lahat Divisi IT</p>
+      </footer>
+    </section>
 
-
-  
   <script src="script.js"></script>
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
