@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DeviceController extends Controller
 {
@@ -84,5 +87,19 @@ class DeviceController extends Controller
         $device->delete();
 
         return redirect()->route('device')->with('success', 'Data perangkat berhasil dihapus.');
+    }
+
+    public function excel(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        return Excel::download(new UserExport, 'DataDevices_'.$filename.'.xlsx');
+    }
+
+    public function pdf(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        $data = array(
+            'device'    =>  Device::get(),
+        );
+        $pdf = Pdf::loadView('devicePdf', $data);
+        return $pdf->stream('DataDevices_'.$filename.'.pdf');
     }
 }
