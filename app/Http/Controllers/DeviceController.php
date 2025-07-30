@@ -37,6 +37,13 @@ class DeviceController extends Controller
             'processor.required' => 'Processor tidak boleh kosong.',
         ]);
 
+        $device = new Device();
+        $device->it_asset  = $request->it_asset;
+        $device->ram       = $request->ram;
+        $device->storage   = $request->storage;
+        $device->processor = $request->processor;
+        $device->save();
+
         return redirect()->route('device')->with('success', 'Data perangkat berhasil ditambahkan.');
     }
 }
