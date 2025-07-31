@@ -16,4 +16,8 @@ class Device extends Model
         'storage',
         'processor',
     ];
+
+    public function beritaAcara(){
+        return $this->hasOne(BeritaAcara::class, 'it_asset_id');
+    }
 }

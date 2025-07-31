@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-header d-flex flex-wrap justify-content-center justify-content-xl-between">
             <div class="mb-1 mr-2">
-                <a href="#" class="btn btn-sm btn-primary">
+                <a href="{{ route('berita-acara.create') }}" class="btn btn-sm btn-success">
                     <i class="fas fa-plus mr-2"></i>
                     Tambah Data
                 </a>
@@ -32,38 +32,48 @@
                     <tr class="text-center">
                         <th>No</th>
                         <th>IT Asset</th>
-                        <th>Layanan</th>
+                        <th>User</th>
+                        <th>Unit</th>
+                        <th>Kategori Layanan</th>
                         <th>Jenis Layanan</th>
-                        <th>Deskripsi</th>
-                        <th>status</th>
-                        <th>Catatan</th>
+                        <th>Detail Pekerjaan</th>
+                        <th>Status</th>
+                        <th>Keterangan</th>
                         <th>
                             <i class="fas fa-cog"></i>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td>112.329837.y060.0009</td>
-                        <td>Instalasi</td>
-                        <td>WIndows 10 Pro</td>
-                        <td>blablabla</td>
-                        <td class="text-center">
-                            <span class="badge badge-success badge-pill">
-                                Selesai
-                            </span>
-                        </td>
-                        <td>aaaaaaaaaaabajshachuuwedhuwehid</td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="#" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($beritaAcara as $index => $item)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td>{{ $item->device->it_asset}}</td>
+                            <td>{{ $item->user }}</td>
+                            <td>{{ $item->unit }}</td>
+                            <td>{{ $item->kategori_layanan }}</td>
+                            <td>{{ $item->jenis_layanan }}</td>
+                            <td>{{ $item->detail_pekerjaan }}</td>
+                            <td class="text-center">
+                                <span class="badge badge-{{ $item->status == 'Selesai' ? 'success' : 'danger' }} badge-pill">
+                                    {{ $item->status }}
+                                </span>
+                            </td>
+                            <td>{{ $item->keterangan }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('berita-acara.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

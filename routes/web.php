@@ -36,5 +36,7 @@ Route::middleware('checkLogin')->group(function(){
 
     //berita acara
     Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');
+    Route::resource('berita-acara', BeritaAcaraController::class)->middleware('checkLogin'); // Assuming you want to use resource routes for CRUD operations on BeritaAcara
+
 });
 
