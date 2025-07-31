@@ -120,7 +120,7 @@
             <p>Asistant Manager Sistem Informasi</p>
         </div>
         <div class="team-member">
-            <img src="{{ asset('img/pak imam.jpg') }}" alt="Ares Pambudi Arto">
+            <img src="{{ asset('img/profile.jpeg') }}" alt="Ares Pambudi Arto">
             <h4><strong>Ares Pambudi Arto</strong></h4>
             <p>Team Leader Infrastructure Support</p>
         </div>

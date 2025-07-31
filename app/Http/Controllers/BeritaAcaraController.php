@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Device;
 use App\Models\BeritaAcara;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\BeritaAcaraExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BeritaAcaraController extends Controller
 {
@@ -53,6 +56,20 @@ class BeritaAcaraController extends Controller
         $beritaAcara->save();
 
         return redirect()->route('beritaAcara')->with('success', 'Data berhasil ditambahkan.');
+    }
+
+    public function excel(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        return Excel::download(new BeritaAcaraExport, 'DataBeritaAcara_'.$filename.'.xlsx');
+    }
+
+    public function pdf(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        $data = array(
+            'beritaAcara'    =>  BeritaAcara::with('device')->get(),
+        );
+        $pdf = Pdf::loadView('beritaAcaraPdf', $data);
+        return $pdf->setPaper('a4','landscape')->stream('DataBeritaAcara_'.$filename.'.pdf');
     }
 
 }

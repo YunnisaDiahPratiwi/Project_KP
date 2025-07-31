@@ -39,7 +39,7 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item {{$menuBeritaAcara ?? ''}}">
                 <a class="nav-link" href="{{ route('beritaAcara') }}">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-fw fa-file-alt"></i>
                     <span>Berita Acara</span></a>
             </li>
 
