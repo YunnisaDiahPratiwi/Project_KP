@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-header d-flex flex-wrap justify-content-center justify-content-xl-between">
             <div class="mb-1 mr-2">
-                <a href="{{ route('berita-acara.create') }}" class="btn btn-sm btn-success">
+                <a href="{{ route('berita-acara.create') }}" class="btn btn-sm btn-primary">
                     <i class="fas fa-plus mr-2"></i>
                     Tambah Data
                 </a>
@@ -52,25 +52,31 @@
                             <td>{{ $item->user }}</td>
                             <td>{{ $item->unit }}</td>
                             <td>{{ $item->kategori_layanan }}</td>
-                            <td>{{ $item->jenis_layanan }}</td>
+                            <td>{{ $item->jenis_layanan }}</td> 
                             <td>{{ $item->detail_pekerjaan }}</td>
                             <td class="text-center">
-                                <span class="badge badge-{{ $item->status == 'Selesai' ? 'success' : 'danger' }} badge-pill">
-                                    {{ $item->status }}
-                                </span>
+                                @if ($item->status == 'Selesai')
+                                    <span class="badge badge-success">{{ $item->status }}</span>
+                                @elseif ($item->status == 'Diproses')
+                                    <span class="badge badge-warning">{{ $item->status }}</span>
+                                @else
+                                    <span class="badge badge-danger">{{ $item->status }}</span>
+                                @endif
                             </td>
                             <td>{{ $item->keterangan }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('berita-acara.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                            <td class="text-center" width="20">
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="{{ route('berita-acara.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm ms-2">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
