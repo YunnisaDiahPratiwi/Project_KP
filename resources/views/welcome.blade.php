@@ -19,6 +19,7 @@
         <li><a href="#hero">Home</a></li>
         <li><a href="#about-us-section">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#our-team-section">Team</a></li>
         <li><a href="{{route('login')}}" class="btn-primary" style="color: white">Login</a></li>
       </ul>
     </nav>
@@ -82,7 +83,7 @@
 
 
   <!-- OUR STORY -->
-    <section class="our-story-section">
+    <section class="our-story-section" id="our-team-section">
     <div class="our-story-container">
         <div class="our-story-image">
             <div class="gambar-besar">
