@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berita_acaras', function (Blueprint $table) {
+        Schema::create('berita_acara', function (Blueprint $table) {
             $table->id();
 
             // Relasi ke devices
@@ -28,6 +28,8 @@ return new class extends Migration
             $table->text('detail_pekerjaan');
             $table->enum('status', ['Selesai', 'Diproses', 'Pending'])->default('Pending');
             $table->text('keterangan')->nullable();
+
+            $table->unique('it_asset_id');
 
             $table->timestamps();
         });

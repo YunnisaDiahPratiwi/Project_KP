@@ -71,8 +71,8 @@
 
             <div>
                 <button type="submit" class="btn btn-sm btn-warning mt-3">
-                    <i class="fas fa-edit mr-2"></i>
-                    Edit
+                    <i class="fas fa-save mr-2"></i>
+                    Update
                 </button>
             </div>
             </form>
