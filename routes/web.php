@@ -39,5 +39,10 @@ Route::middleware('checkLogin')->group(function(){
     Route::resource('berita-acara', BeritaAcaraController::class)->middleware('checkLogin'); // Assuming you want to use resource routes for CRUD operations on BeritaAcara
     Route::get('beritaAcara/createBa',[BeritaAcaraController::class,'createBa'])->name('createBa');
     Route::post('beritaAcara/store',[BeritaAcaraController::class,'store'])->name('storeBa');
+    Route::get('beritaAcara/edit/{id}',[BeritaAcaraController::class,'edit'])->name('editBa');
+    Route::post('beritaAcara/update/{id}',[BeritaAcaraController::class,'update'])->name('updateBa');
+    Route::delete('beritaAcara/destroy/{id}',[BeritaAcaraController::class,'destroy'])->name('deleteBa');
+    Route::get('beritaAcara/excel',[BeritaAcaraController::class,'excel'])->name('beritaAcaraExcel');
+    Route::get('beritaAcara/pdf',[BeritaAcaraController::class,'pdf'])->name('beritaAcaraPdf');
 
 });
