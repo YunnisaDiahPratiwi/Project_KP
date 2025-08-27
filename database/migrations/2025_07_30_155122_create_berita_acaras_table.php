@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('berita_acara', function (Blueprint $table) {
+        Schema::create('berita_acaras', function (Blueprint $table) {
             $table->id();
 
             // Relasi ke devices

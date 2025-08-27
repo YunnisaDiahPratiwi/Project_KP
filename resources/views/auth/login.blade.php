@@ -50,7 +50,7 @@
                                             <input type="name" class="form-control form-control-user @error('name') is-invalid @enderror"
                                                 placeholder="Enter Username" name="name" value="{{old('name')}}">
                                                 @error('name')
-                                                    <small class="text-danger">
+                                                    <small class="text-danger d-block text-left">
                                                         {{$message}}
                                                     </small>
                                                 @enderror
@@ -61,13 +61,13 @@
                                             <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
                                                 placeholder="Password" name="password">
                                                 @error('password')
-                                                    <small class="text-danger">
+                                                    <small class="text-danger d-block text-left">
                                                         {{$message}}
                                                     </small>
                                                 @enderror
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-user btn-block" style="background-color:#2D2D6B; border-color:#2D2D6B; color:#fff;">
                                             Login
                                         </button>
                                         <hr>

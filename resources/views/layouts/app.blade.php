@@ -53,15 +53,6 @@
                                 </form>
                             </div>
                                 </a>
-                                {{-- <div class="dropdown-divider"></div>
-                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item" style="border: none; background: none; padding: 8px; margin-left: 17px;">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </button>
-                                </form>
-                            </div> --}}
                         </li>
 
                     </ul>

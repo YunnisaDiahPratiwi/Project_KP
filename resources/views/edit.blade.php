@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-header bg-warning">
-                <a href="{{route('device')}}" class="btn btn-sm btn-success">
+                <a href="{{route('device')}}" class="btn btn-sm" style="background-color: white">
                     <i class="fas fa-arrow-left mr-2"></i>
                     kembali
                 </a>

@@ -6,8 +6,8 @@
     </h1>
 
     <div class="card">
-        <div class="card-header bg-primary">
-                <a href="{{route('beritaAcara')}}" class="btn btn-sm btn-success">
+        <div class="card-header" style="background-color:#2D2D6B; color:#fff; border-bottom:none;">
+                <a href="{{route('beritaAcara')}}" class="btn btn-sm" style="background-color:#fff; border:1px solid #2D2D6B; color:#2D2D6B;">
                     <i class="fas fa-arrow-left mr-2"></i>
                     kembali
                 </a>

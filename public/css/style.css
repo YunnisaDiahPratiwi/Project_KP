@@ -100,6 +100,20 @@ body {
   font-size: 18px;
 }
 
+.btn-custom {
+    background-color: #2D2D6BE5;
+    border-color: #2D2D6BE5;
+    color: #fff;
+    transition: all 0.3s ease; /* biar halus pas hover */
+}
+
+.btn-custom:hover {
+    background-color: #242452; /* lebih gelap saat hover */
+    border-color: #242452;
+    color: #fff;
+}
+
+
 .team{
     padding: 60px 20px;
     font-family: 'Segoe UI', sans-serif;

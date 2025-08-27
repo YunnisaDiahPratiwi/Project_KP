@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-header d-flex flex-wrap justify-content-center justify-content-xl-between">
             <div class="mb-1 mr-2">
-                <a href="{{ route('berita-acara.create') }}" class="btn btn-sm btn-primary">
+                <a href="{{ route('berita-acara.create') }}" class="btn btn-sm" style="background-color:#2D2D6B; color:#fff; border-bottom:none;">
                     <i class="fas fa-plus mr-2"></i>
                     Tambah Data
                 </a>
@@ -28,7 +28,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                <thead class="bg-primary text-white">
+                <thead class="text-white" style="background-color:#2D2D6BE5;">
                     <tr class="text-center">
                         <th>No</th>
                         <th>IT Asset</th>
@@ -64,9 +64,9 @@
                                 @endif
                             </td>
                             <td>{{ $item->keterangan }}</td>
-                            <td class="text-center" width="20">
-                                <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('berita-acara.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                            <td class="text-center">
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('berita-acara.edit', $item->id) }}" class="btn btn-warning btn-sm mr-2">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST">
