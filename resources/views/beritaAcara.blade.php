@@ -72,7 +72,7 @@
                                     <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm ms-2">
+                                        <button type="button" class="btn btn-danger btn-sm ms-2" data-toggle="modal" data-target="#deleteModal{{ $item->id }}">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
@@ -82,7 +82,29 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
-        </div>
+            <!-- Modal Konfirmasi Hapus -->
+            <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $item->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel{{ $item->id }}">Hapus {{ $item->device->it_asset }}?</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus <strong>{{ $item->device->it_asset }}</strong>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+                    <form action="{{ route('berita-acara.destroy', $item->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
     </div>
 @endsection
