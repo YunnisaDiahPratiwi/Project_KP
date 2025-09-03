@@ -41,9 +41,8 @@
                                         Teknisi
                                     </div>
                                 </a>
-
                                 <a class="dropdown-item" href="#">
-                                    <div class="dropdown-divider"></div>
+                                <div class="dropdown-divider"></div>
                                 <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                                     @csrf
                                     <button type="submit" class="dropdown-item" style="border: none; background: none; padding: 0px;">
@@ -52,11 +51,9 @@
                                     </button>
                                 </form>
                             </div>
-                                </a>
+                            </a>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 

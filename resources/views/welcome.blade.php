@@ -20,7 +20,7 @@
         <li><a href="#about-us-section">About</a></li>
         <li><a href="#our-team-section">Team</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="{{route('login')}}" class="btn-primary" style="color: white">Login</a></li>
+        <li><a href="{{route('pilihrole')}}" class="btn-primary" style="color: white">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -30,7 +30,7 @@
     <div class="hero-overlay">
       <h1>WELCOME TO DIVISI IT <br> UPT BALAI YASA LAHAT</h1>
       <p class="tagline">Safety and Sustainable</p><br><br>
-      <a href="{{route('login')}}" class="btn-primary">Login as Staff IT</a>
+      <a href="{{route('login')}}" class="btn-primary">Login</a>
     </div>
   </section>
 
@@ -77,7 +77,7 @@
         <div class="about-us-footer">
         <div class="about-us-footer-overlay">
             <h2>Dari Instalasi hingga Inovasi Setiap Sistem yang Kami Bangun Adalah Langkah Menuju Operasional yang Lebih Unggul</h2>
-        </div> 
+        </div>
     </div>
     </section>
 

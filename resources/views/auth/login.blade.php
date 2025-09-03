@@ -73,8 +73,7 @@
                                         <hr>
                                         <div class="text-center">
                                             <small>
-                                                Kembali Ke Beranda?
-                                                <a href="{{route('welcome')}}">Klik Disini</a>
+                                                <a href="{{route('pilihrole')}}">Kembali</a>
                                             </small>
                                         </div>
                                     </div>

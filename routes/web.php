@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaAcaraController;
 
@@ -16,8 +17,17 @@ Route::get('/', function () {
 Route::get('login',[AuthController::class,'login'])->name('login');
 Route::post('login',[AuthController::class,'loginProses'])->name('loginProses');
 
+Route::get('loginKaryawan',[AuthController::class,'loginKaryawan'])->name('loginKaryawan');
+Route::post('loginKaryawan',[AuthController::class,'loginKaryawanProses'])->name('loginKaryawanProses');
+
+Route::get('pilihrole',[AuthController::class,'pilihrole'])->name('pilihrole');
+
 //logout
 Route::post('logout',[AuthController::class,'logout'])->name('logout');
+
+Route::get('pengajuan', [KaryawanController::class, 'index'])->name('pengajuan.index');
+Route::post('pengajuan', [KaryawanController::class, 'store'])->name('pengajuan.store');
+Route::get('status', [KaryawanController::class, 'status'])->name('status.pengajuan');
 
 
 Route::middleware('checkLogin')->group(function(){
@@ -45,4 +55,7 @@ Route::middleware('checkLogin')->group(function(){
     Route::get('beritaAcara/excel',[BeritaAcaraController::class,'excel'])->name('beritaAcaraExcel');
     Route::get('beritaAcara/pdf',[BeritaAcaraController::class,'pdf'])->name('beritaAcaraPdf');
 
+    //pengajuan
+    // Route::get('pengajuan', [KaryawanController::class, 'pengajuan'])->name('pengajuan.index');
 });
+
