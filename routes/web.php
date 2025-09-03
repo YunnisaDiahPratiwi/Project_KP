@@ -6,6 +6,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaAcaraController;
+use App\Http\Controllers\DaftarPengajuanController;
 
 Route::get('/', function () {
     return view ('welcome');
@@ -56,6 +57,7 @@ Route::middleware('checkLogin')->group(function(){
     Route::get('beritaAcara/pdf',[BeritaAcaraController::class,'pdf'])->name('beritaAcaraPdf');
 
     //pengajuan
-    // Route::get('pengajuan', [KaryawanController::class, 'pengajuan'])->name('pengajuan.index');
+    Route::get('daftarpengajuan', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
+
 });
 

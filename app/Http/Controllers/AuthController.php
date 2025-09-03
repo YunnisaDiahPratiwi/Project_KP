@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function login(){
-        return view('auth/login');
+        return view('auth.login');
     }
     public function loginKaryawan(){
-            return view('auth/loginKaryawan');
+            return view('auth.loginKaryawan');
         }
     public function pilihrole(){
-            return view('auth/pilihrole');
+            return view('auth.pilihrole');
         }
 
     public function loginProses(Request $request){
