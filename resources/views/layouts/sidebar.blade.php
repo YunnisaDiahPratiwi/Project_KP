@@ -39,6 +39,29 @@
                     <span>Berita Acara</span></a>
             </li>
 
+            <!-- Nav Item - Tables -->
+            <li class="nav-item {{$menuDaftarPengajuan ?? ''}}">
+                <a class="nav-link" href="{{ route('daftarPengajuan') }}">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Daftar Pengajuan</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Menu Logout -->
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link d-flex align-items-center"
+                            style="border: none; background: none; width: 100%; text-align: left;">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </li>
+
+
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

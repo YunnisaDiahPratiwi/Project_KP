@@ -1,11 +1,11 @@
-@include('layouts/header')
+@include('layouts.header')
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('layouts/sidebar')
+        @include('layouts.sidebar')
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -27,14 +27,14 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            {{-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Staff IT</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('sdadmin2/img/undraw_profile.svg')}}">
-                            </a>
+                            </a> --}}
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            {{-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <div class="badge badge-success justify-content-center d-flex">
@@ -50,7 +50,7 @@
                                         Logout
                                     </button>
                                 </form>
-                            </div>
+                            </div> --}}
                             </a>
                         </li>
                     </ul>
@@ -89,7 +89,7 @@
     </a>
 
 
-    @include('layouts/footer')
+    @include('layouts.footer')
 
     <script>
         $(document).ready(function() {

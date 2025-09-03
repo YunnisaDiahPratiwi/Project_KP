@@ -17,7 +17,6 @@
                     <div class="mb-4">
                         <img src="{{ asset('img/logo.png') }}" width="120" alt="Logo">
                     </div>
-                    <h5 class="mb-4">Pilih Role Login</h5>
 
                     {{-- Tombol ke login staff IT --}}
                     <a href="{{ route('login') }}" class="btn btn-user btn-block mb-3"

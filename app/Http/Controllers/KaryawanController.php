@@ -39,4 +39,15 @@ class KaryawanController extends Controller
         return view('karyawan.status', compact('pengajuan'));
     }
 
+    public function daftarPengajuan()
+    {
+        $data = array(
+            'title'                 => 'Daftar Pengajuan',
+            'menuDaftarPengajuan'   => 'active',
+            'pengajuans'            => Pengajuan::all(), // ambil semua data dari tabel pengajuans
+        );
+
+        return view('daftarPengajuan', $data); // nama file view harus sesuai (lowercase)
+    }
+
 }
