@@ -32,8 +32,8 @@
                     <tr class="text-center">
                         <th>No</th>
                         <th>IT Asset</th>
-                        <th>User</th>
-                        <th>Unit</th>
+                        <th>Nama Karyawan</th>
+                        <th>Divisi</th>
                         <th>Kategori Layanan</th>
                         <th>Jenis Layanan</th>
                         <th>Detail Pekerjaan</th>
@@ -49,8 +49,8 @@
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $item->device->it_asset}}</td>
-                            <td>{{ $item->user }}</td>
-                            <td>{{ $item->unit }}</td>
+                            <td>{{ $item->karyawan->nama }}</td>
+                            <td>{{ $item->karyawan->divisi }}</td>
                             <td>{{ $item->kategori_layanan }}</td>
                             <td>{{ $item->jenis_layanan }}</td>
                             <td>{{ $item->detail_pekerjaan }}</td>
