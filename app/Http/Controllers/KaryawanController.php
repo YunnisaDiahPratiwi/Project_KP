@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengajuan;
+use Illuminate\Support\Facades\Auth;
 
 class KaryawanController extends Controller
 {
-    public function index(){
-        $data = array(
-            "title"              => "Pengajuan Perangkat Bermasalah",
-            'it_asset'         => 'IT Asset',
+    public function index()
+    {
+        $karyawan = Auth::guard('karyawan')->user(); // ambil data karyawan yang login
 
+        $data = array(
+            "title"   => "Pengajuan Perangkat Bermasalah",
+            "karyawan" => $karyawan, // kirim ke view
         );
+
         return view('karyawan.pengajuan', $data);
     }
 
@@ -24,8 +28,10 @@ class KaryawanController extends Controller
             'detail_masalah' => 'required|string',
         ]);
 
-        // Simpan ke database (kalau sudah ada model Pengajuan)
-        // Pengajuan::create($validated);
+        // Tambahin info karyawan biar nyambung ke tabel pengajuans
+        $validated['karyawan_id'] = Auth::guard('karyawan')->id();
+
+        Pengajuan::create($validated);
 
         return redirect()->route('pengajuan.index')->with('success', 'Pengajuan berhasil disubmit!');
     }
@@ -33,8 +39,10 @@ class KaryawanController extends Controller
     // Fungsi buat nampilin halaman status pengajuan
     public function status()
     {
-        // Ambil semua data pengajuan dari database
-        $pengajuan = Pengajuan::all();
+        $karyawan = Auth::guard('karyawan')->user();
+
+        // ambil hanya pengajuan milik karyawan yang login
+        $pengajuan = Pengajuan::where('karyawan_id', $karyawan->id)->get();
 
         return view('karyawan.status', compact('pengajuan'));
     }

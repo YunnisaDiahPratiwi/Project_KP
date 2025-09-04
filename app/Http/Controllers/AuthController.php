@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -40,29 +42,32 @@ class AuthController extends Controller
     }
 
 // === KARYAWAN LOGIN ===
-    public function loginKaryawanProses(Request $request){
+    public function loginKaryawanProses(Request $request)
+    {
         $request->validate([
-            'unit'     => 'required|string',
-            'nipp'     => 'required|numeric',
-            'password' => 'required|min:8',
+            'divisi'     => 'required|string',
+            'nama'     => 'required|string',
+            'password' => 'required|min:5',
         ],[
-            'unit.required'     => 'Unit tidak boleh kosong',
-            'nipp.required'     => 'NIPP tidak boleh kosong',
-            'nipp.numeric'      => 'NIPP harus berupa angka',
+            'divisi.required'     => 'Divisi tidak boleh kosong',
+            'nama.required'     => 'Nama tidak boleh kosong',
             'password.required' => 'Password tidak boleh kosong',
-            'password.min'      => 'Password minimal 8 karakter',
+            'password.min'      => 'Password minimal 5 karakter',
         ]);
 
-        $credentials = [
-            'unit'     => $request->unit,
-            'nipp'     => $request->nipp,
-            'password' => $request->password,
-        ];
+        $karyawan = Karyawan::where('divisi', $request->divisi)
+                            ->where('nama', $request->nama)
+                            ->first();
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard.karyawan')->with('success','Anda Berhasil Login sebagai Karyawan');
+        if ($karyawan) {
+            if (Hash::check($request->password, $karyawan->password)) {
+                Auth::guard('karyawan')->login($karyawan);
+                return redirect()->route('pengajuan.index')->with('success','Anda Berhasil Login sebagai Karyawan');
+            } else {
+                dd('Password salah', $request->password, $karyawan->password);
+            }
         } else {
-            return redirect()->back()->with('error','Unit, NIPP atau Password salah');
+            dd('Data karyawan tidak ditemukan');
         }
     }
 
@@ -71,6 +76,12 @@ class AuthController extends Controller
         session()->invalidate();
         session()->regenerateToken();
 
-        return redirect()->route('login')->with('success','Anda Berhasil Logout');
+        Auth::guard('karyawan')->logout();
+        session()->invalidate();
+        session()->regenerateToken();
+
+        return redirect()->route('welcome')->with('success','Anda Berhasil Logout');
     }
+
+
 }

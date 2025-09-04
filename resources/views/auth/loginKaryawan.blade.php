@@ -24,29 +24,28 @@
                                 <form class="user" method="POST" action="{{route('loginKaryawanProses')}}">
                                     @csrf
 
-                                    {{-- Unit --}}
+                                    {{-- Divisi --}}
                                     <div class="form-group">
                                         <input type="text"
-                                            class="form-control form-control-user @error('unit') is-invalid @enderror"
-                                            placeholder="Masukkan Unit"
-                                            name="unit"
-                                            value="{{ old('unit') }}">
-                                        @error('unit')
+                                            class="form-control form-control-user @error('divisi') is-invalid @enderror"
+                                            placeholder="Enter Divisi"
+                                            name="divisi"
+                                            value="{{ old('divisi') }}">
+                                        @error('divisi')
                                             <small class="text-danger d-block text-left">{{ $message }}</small>
                                         @enderror
                                     </div>
 
-                                    {{-- NIPP --}}
-                                    <div class="form-group">
-                                        <input type="number"
-                                            class="form-control form-control-user @error('nipp') is-invalid @enderror"
-                                            placeholder="Masukkan NIPP"
-                                            name="nipp"
-                                            value="{{ old('nipp') }}">
-                                        @error('nipp')
-                                            <small class="text-danger d-block text-left">{{ $message }}</small>
-                                        @enderror
-                                    </div>
+                                    {{-- nama --}}
+                                        <div class="form-group">
+                                            <input type="name" class="form-control form-control-user @error('nama') is-invalid @enderror"
+                                                placeholder="Enter nama" name="nama" value="{{old('nama')}}">
+                                                @error('nama')
+                                                    <small class="text-danger d-block text-left">
+                                                        {{$message}}
+                                                    </small>
+                                                @enderror
+                                        </div>
 
                                     {{-- Password --}}
                                     <div class="form-group">

@@ -161,7 +161,7 @@
 
     <div class="text-center mb-4" style="position: relative; z-index: 1;">
     <h3 class="text-white">
-        Selamat Datang <span style="color: orange;">{{ Auth::user()->name }}</span> Di Divisi IT
+        Selamat Datang <span style="color: orange;">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span> Di Divisi IT
     </h3>
     <p class="text-white">Silahkan masukkan permasalahan perangkat anda</p>
     </div>
@@ -182,12 +182,12 @@
                     <div class="col-xl-6 mb-1">
                         <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
                         <input type="text" class="form-control" style="color: #de944b" id="nama_karyawan"
-                               name="nama_karyawan" value="{{ auth()->user()->name }}" readonly>
+                               name="nama_karyawan" value="{{ $karyawan->nama }}" readonly>
                     </div>
-                    {{-- unit --}}
+                    {{-- divisi--}}
                     <div class="col-xl-6">
-                        <label for="unit" class="form-label">Unit</label>
-                        <input type="text" class="form-control" style="color: #de944b" id="unit" name="unit">
+                        <label for="divisi" class="form-label">Divisi</label>
+                        <input type="text" class="form-control" style="color: #de944b" id="divisi" name="divisi" value="{{ $karyawan->divisi }}" readonly>
                     </div>
                     </div>
                     <!-- IT Asset (input manual) -->

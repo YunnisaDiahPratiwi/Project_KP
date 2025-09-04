@@ -3,24 +3,21 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
 
-class checkLogin
+use Illuminate\Support\Facades\Auth;
+
+
+class CheckLogin
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
+        // cek login di guard web (teknisi/manager) atau karyawan
+        if (Auth::guard('web')->check() || Auth::guard('karyawan')->check()) {
             return $next($request);
-        }else{
-            return redirect()->route('login')->with('error','Anda belum melakukan login');
+
         }
-        
+
+        // kalau belum login, lempar balik ke halaman login utama
+        return redirect()->route('login')->with('error', 'Anda belum melakukan login');
     }
 }

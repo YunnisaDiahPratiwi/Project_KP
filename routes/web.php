@@ -6,58 +6,83 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaAcaraController;
-use App\Http\Controllers\DaftarPengajuanController;
+
 
 Route::get('/', function () {
-    return view ('welcome');
+    return view('welcome');
 })->name('welcome');
 
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'loginProses'])->name('loginProses');
 
+Route::get('loginKaryawan', [AuthController::class, 'loginKaryawan'])->name('loginKaryawan');
+Route::post('loginKaryawan', [AuthController::class, 'loginKaryawanProses'])->name('loginKaryawanProses');
 
-//login
-Route::get('login',[AuthController::class,'login'])->name('login');
-Route::post('login',[AuthController::class,'loginProses'])->name('loginProses');
+Route::get('pilihrole', [AuthController::class, 'pilihrole'])->name('pilihrole');
 
-Route::get('loginKaryawan',[AuthController::class,'loginKaryawan'])->name('loginKaryawan');
-Route::post('loginKaryawan',[AuthController::class,'loginKaryawanProses'])->name('loginKaryawanProses');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('pilihrole',[AuthController::class,'pilihrole'])->name('pilihrole');
+/*
+|--------------------------------------------------------------------------
+| Routes with Middleware (Login Required)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('checkLogin')->group(function () {
 
-//logout
-Route::post('logout',[AuthController::class,'logout'])->name('logout');
+    // Dashboard
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('pengajuan', [KaryawanController::class, 'index'])->name('pengajuan.index');
-Route::post('pengajuan', [KaryawanController::class, 'store'])->name('pengajuan.store');
-Route::get('status', [KaryawanController::class, 'status'])->name('status.pengajuan');
+    // route karyawan
+    Route::get('pengajuan', [KaryawanController::class, 'index'])->name('pengajuan.index');
 
+    /*
+    |--------------------------------------------------------------------------
+    | Device Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('device')->group(function () {
+        Route::get('/', [DeviceController::class, 'device'])->name('device');
+        Route::get('/create', [DeviceController::class, 'createDevice'])->name('createDevice');
+        Route::post('/store', [DeviceController::class, 'store'])->name('storeDevice');
+        Route::get('/edit/{id}', [DeviceController::class, 'edit'])->name('editDevice');
+        Route::post('/update/{id}', [DeviceController::class, 'update'])->name('updateDevice');
+        Route::delete('/destroy/{id}', [DeviceController::class, 'destroy'])->name('deleteDevice');
+        Route::get('/excel', [DeviceController::class, 'excel'])->name('deviceExcel');
+        Route::get('/pdf', [DeviceController::class, 'pdf'])->name('devicePdf');
+    });
 
-Route::middleware('checkLogin')->group(function(){
-    //dashboard
-    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    /*
+    |--------------------------------------------------------------------------
+    | Berita Acara Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('berita-acara')->group(function () {
+        Route::resource('berita-acara', BeritaAcaraController::class);
+        Route::get('/', [BeritaAcaraController::class, 'beritaAcara'])->name('beritaAcara');
+        Route::get('/create', [BeritaAcaraController::class, 'createBa'])->name('createBa');
+        Route::post('/store', [BeritaAcaraController::class, 'store'])->name('storeBa');
+        Route::get('/edit/{id}', [BeritaAcaraController::class, 'edit'])->name('editBa');
+        Route::put('/update/{id}', [BeritaAcaraController::class, 'update'])->name('updateBa');
+        Route::delete('/destroy/{id}', [BeritaAcaraController::class, 'destroy'])->name('deleteBa');
+        Route::get('/excel', [BeritaAcaraController::class, 'excel'])->name('beritaAcaraExcel');
+        Route::get('/pdf', [BeritaAcaraController::class, 'pdf'])->name('beritaAcaraPdf');
+    });
 
-    //device
-    Route::get('device',[DeviceController::class,'device'])->name('device');
-    Route::get('device/createDevice',[DeviceController::class,'createDevice'])->name('createDevice');
-    Route::post('device/store',[DeviceController::class,'store'])->name('storeDevice');
-    Route::get('device/edit/{id}',[DeviceController::class,'edit'])->name('editDevice');
-    Route::post('device/update/{id}',[DeviceController::class,'update'])->name('updateDevice');
-    Route::delete('device/destroy/{id}',[DeviceController::class,'destroy'])->name('deleteDevice');
-    Route::get('device/excel',[DeviceController::class,'excel'])->name('deviceExcel');
-    Route::get('device/pdf',[DeviceController::class,'pdf'])->name('devicePdf');
-
-    //berita acara
-    Route::get('beritaAcara',[BeritaAcaraController::class,'beritaAcara'])->name('beritaAcara');
-    Route::resource('berita-acara', BeritaAcaraController::class)->middleware('checkLogin'); // Assuming you want to use resource routes for CRUD operations on BeritaAcara
-    Route::get('beritaAcara/createBa',[BeritaAcaraController::class,'createBa'])->name('createBa');
-    Route::post('beritaAcara/store',[BeritaAcaraController::class,'store'])->name('storeBa');
-    Route::get('beritaAcara/edit/{id}',[BeritaAcaraController::class,'edit'])->name('editBa');
-    Route::put('beritaAcara/update/{id}', [BeritaAcaraController::class, 'update'])->name('updateBa');
-    Route::delete('beritaAcara/destroy/{id}',[BeritaAcaraController::class,'destroy'])->name('deleteBa');
-    Route::get('beritaAcara/excel',[BeritaAcaraController::class,'excel'])->name('beritaAcaraExcel');
-    Route::get('beritaAcara/pdf',[BeritaAcaraController::class,'pdf'])->name('beritaAcaraPdf');
-
-    //pengajuan
-    Route::get('daftarpengajuan', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
+    /*
+    |--------------------------------------------------------------------------
+    | Pengajuan Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('pengajuan')->group(function () {
+        Route::get('/', [KaryawanController::class, 'index'])->name('pengajuan.index');
+        Route::post('/', [KaryawanController::class, 'store'])->name('pengajuan.store');
+        Route::get('/status', [KaryawanController::class, 'status'])->name('status.pengajuan');
+        Route::get('/daftar', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
+    });
 
 });
-
