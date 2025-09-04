@@ -20,6 +20,21 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach ($pengajuans as $i => $p)
+                        <tr>
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{ $p->karyawan->nama }}</td>
+                            <td>{{ $p->karyawan->divisi }}</td>
+                            <td>{{ $p->it_asset }}</td>
+                            <td>{{ $p->kategori_layanan }}</td>
+                            <td>{{ $p->detail_masalah }}</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-info">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
 
             </table>
         </div>

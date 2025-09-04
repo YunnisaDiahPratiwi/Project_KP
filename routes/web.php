@@ -6,6 +6,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaAcaraController;
+use App\Http\Controllers\PengajuanController;
 
 
 Route::get('/', function () {
@@ -83,6 +84,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::post('/', [KaryawanController::class, 'store'])->name('pengajuan.store');
         Route::get('/status', [KaryawanController::class, 'status'])->name('status.pengajuan');
         Route::get('/daftar', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
+        Route::get('/all', [PengajuanController::class, 'daftar'])->name('pengajuan.daftar');
     });
 
 });

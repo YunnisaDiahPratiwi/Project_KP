@@ -10,11 +10,11 @@ class Pengajuan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'it_asset', 'kategori_layanan', 'detail_masalah', 'status'
+        'karyawan_id', 'it_asset', 'kategori_layanan', 'detail_masalah', 'status'
     ];
 
-    public function user()
+    public function karyawan()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Karyawan::class, 'karyawan_id');
     }
 }

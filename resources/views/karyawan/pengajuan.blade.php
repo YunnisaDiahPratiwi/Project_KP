@@ -206,10 +206,10 @@
                         </select>
                     </div>
 
-                    <!-- Deskripsi Masalah -->
+                    <!-- Detail Masalah -->
                     <div class="mb-3">
-                        <label for="deskripsi" class="form-label" >Deskripsi Masalah</label>
-                        <textarea class="form-control" style="color: #de944b" id="deskripsi" name="deskripsi" rows="4" placeholder="Jelaskan masalah yang dialami"></textarea>
+                        <label for="detail_masalah" class="form-label" >Detail Masalah</label>
+                        <textarea class="form-control" style="color: #de944b" id="detail_masalah" name="detail_masalah" rows="4" placeholder="Jelaskan masalah yang dialami"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-custom">Submit</button>

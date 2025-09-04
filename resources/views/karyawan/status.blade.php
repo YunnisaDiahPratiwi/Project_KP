@@ -77,7 +77,7 @@
 
     <div class="text-center mb-4" style="position: relative; z-index: 1;">
     <h3 class="text-white">
-        Status Pengajuan <span style="color: #de944b;">{{ Auth::user()->name }}</span>
+        Status Pengajuan <span style="color: #de944b;">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span>
     </h3>
     {{-- <p class="text-white">Silahkan masukkan permasalahan perangkat anda</p> --}}
 
