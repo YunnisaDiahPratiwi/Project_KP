@@ -30,7 +30,7 @@
     <div class="hero-overlay">
       <h1>WELCOME TO DIVISI IT <br> UPT BALAI YASA LAHAT</h1>
       <p class="tagline">Safety and Sustainable</p><br><br>
-      <a href="{{route('login')}}" class="btn-primary">Login</a>
+      <a href="{{route('pilihrole')}}" class="btn-primary">Login</a>
     </div>
   </section>
 

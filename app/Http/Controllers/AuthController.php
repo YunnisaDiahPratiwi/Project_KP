@@ -55,17 +55,14 @@ class AuthController extends Controller
             'password.min'      => 'Password minimal 5 karakter',
         ]);
 
-        $karyawan = Karyawan::where('divisi', $request->divisi)
-                            ->where('nama', $request->nama)
-                            ->first();
+        $credentials = [
+            'unit'     => $request->unit,
+            'nipp'     => $request->nipp,
+            'password' => $request->password,
+        ];
 
-        if ($karyawan) {
-            if (Hash::check($request->password, $karyawan->password)) {
-                Auth::guard('karyawan')->login($karyawan);
-                return redirect()->route('pengajuan.index')->with('success','Anda Berhasil Login sebagai Karyawan');
-            } else {
-                dd('Password salah', $request->password, $karyawan->password);
-            }
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('pengajuan.index')->with('success','Anda Berhasil Login sebagai Karyawan');
         } else {
             dd('Data karyawan tidak ditemukan');
         }
@@ -76,11 +73,7 @@ class AuthController extends Controller
         session()->invalidate();
         session()->regenerateToken();
 
-        Auth::guard('karyawan')->logout();
-        session()->invalidate();
-        session()->regenerateToken();
-
-        return redirect()->route('welcome')->with('success','Anda Berhasil Logout');
+        return redirect()->route('login')->with('success','Anda Berhasil Logout');
     }
 
 
