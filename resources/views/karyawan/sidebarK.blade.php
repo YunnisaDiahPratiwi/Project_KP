@@ -1,22 +1,12 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#2D2D6BE5;">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#f0b493;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center d-flex" href="index.html">
                     <img src="{{ asset('img/logo.png') }}" style="position: absolute;" width="120" alt="Logo">
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{$menuDashboard ?? ''}}">
-                <a class="nav-link" href="{{ route('dashboard') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -26,24 +16,17 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item {{$menuDevice ?? ''}}">
-                <a class="nav-link" href="{{ route('device') }}">
+            <li class="nav-item {{$menuPengajuan ?? ''}}">
+                <a class="nav-link" href="{{ route('pengajuan.index') }}">
                     <i class="fas fa-fw fa-laptop"></i>
-                    <span>Data Perangkat</span></a>
+                    <span>Form Pengajuan</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item {{$menuBeritaAcara ?? ''}}">
-                <a class="nav-link" href="{{ route('beritaAcara') }}">
-                    <i class="fas fa-fw fa-file-alt"></i>
-                    <span>Berita Acara</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item {{$menuDaftarPengajuan ?? ''}}">
-                <a class="nav-link" href="{{ route('daftarPengajuan') }}">
-                    <i class="fas fa-list-ul"></i>
-                    <span>Daftar Pengajuan</span></a>
+            <li class="nav-item {{$menuStatusPengajuan ?? ''}}">
+                <a class="nav-link" href="{{ route('status.pengajuan') }}">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Status pengajuan</span></a>
             </li>
 
             <!-- Divider -->

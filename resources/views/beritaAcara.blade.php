@@ -28,6 +28,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                {{-- <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0"> --}}
                 <thead class="text-white" style="background-color:#2D2D6BE5;">
                     <tr class="text-center">
                         <th>No</th>
@@ -37,7 +38,6 @@
                         <th>Kategori Layanan</th>
                         <th>Jenis Layanan</th>
                         <th>Detail Pekerjaan</th>
-                        <th>Status</th>
                         <th>Keterangan</th>
                         <th>
                             <i class="fas fa-cog"></i>
@@ -49,12 +49,12 @@
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $item->device->it_asset}}</td>
-                            <td>{{ $item->karyawan->nama }}</td>
-                            <td>{{ $item->karyawan->divisi }}</td>
+                            <td>{{ $item->user }}</td>
+                            <td>{{ $item->unit }}</td>
                             <td>{{ $item->kategori_layanan }}</td>
                             <td>{{ $item->jenis_layanan }}</td>
                             <td>{{ $item->detail_pekerjaan }}</td>
-                            <td class="text-center">
+                            {{-- <td class="text-center">
                                 @if ($item->status == 'Selesai')
                                     <span class="badge badge-success">{{ $item->status }}</span>
                                 @elseif ($item->status == 'Diproses')
@@ -62,7 +62,7 @@
                                 @else
                                     <span class="badge badge-danger">{{ $item->status }}</span>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>{{ $item->keterangan }}</td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center">

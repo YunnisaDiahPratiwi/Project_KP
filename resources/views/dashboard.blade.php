@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">
-        {{$title}}
-    </h1>
 
     <div class="text-white mb-4" style="border-radius: 1rem; background-color:#2D2D6BE5;">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
@@ -21,7 +18,7 @@
     </div>
 
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-6 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -118,6 +115,125 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div class="row">
+
+    <!-- Total Pengajuan -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 mb-3 bg-warning text-white">
+        <h5>Total Berita Acara</h5>
+        <h3>{{ $jumlahBeritaAcara }}</h3>
+        </div>
+    </div>
+
+    <!-- Pengajuan Baru -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 mb-3 bg-primary text-white">
+        <h5>Pengajuan Baru</h5>
+        <h3>{{ $jumlahPengajuanBaru }}</h3>
+        </div>
+    </div>
+
+    <!-- Pengajuan Diproses -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 mb-3 bg-info text-white">
+        <h5>Pengajuan Diproses</h5>
+        <h3>{{ $jumlahPengajuanProses }}</h3>
+        </div>
+    </div>
+
+    <!-- Pengajuan Selesai -->
+    <div class="col-md-3">
+        <div class="card shadow-sm p-3 mb-3 bg-success text-white">
+        <h5>Pengajuan Selesai</h5>
+        <h3>{{ $jumlahPengajuanSelesai }}</h3>
+        </div>
+    </div>
 
     </div>
+
+
+    <div class="card mt-4">
+    <div class="card-header text-grey">
+        Pengajuan Baru
+    </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
+                    <thead class="text-white" style="background-color:#2D2D6BE5;">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Karyawan</th>
+                            <th>Divisi</th>
+                            <th>IT Asset</th>
+                            <th>Kategori Layanan</th>
+                            <th>Detail Masalah</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($pengajuans as $i => $p)
+                            <tr>
+                                <td>{{ $i + 1 }}</td>
+                                <td>{{ $p->karyawan->nama }}</td>
+                                <td>{{ $p->karyawan->divisi }}</td>
+                                <td>{{ $p->it_asset }}</td>
+                                <td>{{ $p->kategori_layanan }}</td>
+                                <td>{{ $p->detail_masalah }}</td>
+                                <td>
+                                    <form action="{{ route('teknisi.updateStatus', $p->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="status" value="diproses">
+                                        <button type="submit" class="btn btn-sm btn-success" title="Validasi">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center">Tidak ada pengajuan baru</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead class="text-white" style="background-color:#2D2D6BE5;">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Karyawan</th>
+                        <th>Divisi</th>
+                        <th>IT Asset</th>
+                        <th>Kategori Layanan</th>
+                        <th>Detail Masalah</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($pengajuans as $i => $p)
+                        <tr>
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{ $p->karyawan->nama }}</td>
+                            <td>{{ $p->karyawan->divisi }}</td>
+                            <td>{{ $p->it_asset }}</td>
+                            <td>{{ $p->kategori_layanan }}</td>
+                            <td>{{ $p->detail_masalah }}</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-info">Detail</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div> --}}
 @endsection

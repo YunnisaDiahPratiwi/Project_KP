@@ -27,32 +27,7 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            {{-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Staff IT</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('sdadmin2/img/undraw_profile.svg')}}">
-                            </a> --}}
-                            <!-- Dropdown - User Information -->
-                            {{-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <div class="badge badge-success justify-content-center d-flex">
-                                        Teknisi
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                <div class="dropdown-divider"></div>
-                                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item" style="border: none; background: none; padding: 0px;">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Logout
-                                    </button>
-                                </form>
-                            </div> --}}
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
@@ -90,14 +65,5 @@
 
 
     @include('layouts.footer')
-
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

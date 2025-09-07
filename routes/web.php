@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\TeknisiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BeritaAcaraController;
 use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\BeritaAcaraController;
 
 
 Route::get('/', function () {
@@ -85,6 +86,12 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/status', [KaryawanController::class, 'status'])->name('status.pengajuan');
         Route::get('/daftar', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
         Route::get('/all', [PengajuanController::class, 'daftar'])->name('pengajuan.daftar');
+    });
+
+    Route::prefix('teknisi')->group(function () {
+        Route::get('/dashboard', [TeknisiController::class, 'pengajuanBaru'])->name('teknisi.dashboard');
+        Route::get('/pengajuan', [TeknisiController::class, 'daftarPengajuan'])->name('teknisi.pengajuan');
+        Route::post('/pengajuan/{id}/update-status', [TeknisiController::class, 'updateStatus'])->name('teknisi.updateStatus');
     });
 
 });

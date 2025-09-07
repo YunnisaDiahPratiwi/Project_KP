@@ -14,6 +14,7 @@ class KaryawanController extends Controller
 
         $data = array(
             "title"   => "Pengajuan Perangkat Bermasalah",
+            'menuPengajuan'   => 'active',
             "karyawan" => $karyawan, // kirim ke view
         );
 
@@ -26,6 +27,8 @@ class KaryawanController extends Controller
             'it_asset' => 'required|string',
             'kategori_layanan' => 'required|string',
             'detail_masalah' => 'required|string',
+            'detail_masalah' => 'required|string',
+
         ]);
 
         // Tambahin info karyawan biar nyambung ke tabel pengajuans
@@ -41,11 +44,21 @@ class KaryawanController extends Controller
     {
         $karyawan = Auth::guard('karyawan')->user();
 
-        // ambil hanya pengajuan milik karyawan yang login
-        $pengajuan = Pengajuan::where('karyawan_id', $karyawan->id)->get();
+        $title = "Daftar Pengajuan";
+        $menuStatusPengajuan = "active";
 
-        return view('karyawan.status', compact('pengajuan'));
+
+        // ambil hanya pengajuan milik karyawan yang login
+        // $pengajuan = Pengajuan::where('karyawan_id', $karyawan->id)->get();
+        $pengajuans = $karyawan->pengajuans()->with('karyawan')->latest()->get();
+        // $pengajuans = Pengajuan::with('karyawan')
+        //             ->where('karyawan_id', auth()->id())
+        //             ->latest()
+        //             ->get();
+
+        return view('karyawan.status', compact('pengajuans', 'title', 'menuStatusPengajuan'));
     }
+
 
     public function daftarPengajuan()
     {
