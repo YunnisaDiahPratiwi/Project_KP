@@ -1,15 +1,15 @@
-@extends('karyawan.appK')
+@extends('layouts.app')
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">
-        Status Pengajuan
+        {{$title}}
     </h1>
 
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="text-white" style="background-color:#A84C1D;">
+                    <thead class="text-white" style="background-color:#2D2D6BE5;">
                         <tr>
                             <th>No</th>
                             <th>Nama Karyawan</th>
@@ -18,6 +18,7 @@
                             <th>Kategori Layanan</th>
                             <th>Detail Masalah</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,15 +31,12 @@
                                 <td>{{ $p->kategori_layanan }}</td>
                                 <td>{{ $p->detail_masalah }}</td>
                                 <td>
-                                    @if ($p->status == 'pending')
-                                        <span class="badge badge-danger">Pending</span>
-                                    @elseif ($p->status == 'diproses')
-                                        <span class="badge badge-warning">Diproses</span>
-                                    @elseif ($p->status == 'selesai')
-                                        <span class="badge badge-success">Selesai</span>
-                                    @else
-                                        <span class="badge badge-secondary">-</span>
-                                    @endif
+                                    <span class="badge
+                                        @if($p->status == 'pending') badge-danger
+                                        @elseif($p->status == 'diproses') badge-warning
+                                        @else badge-success @endif">
+                                        {{ ucfirst($p->status) }}
+                                    </span>
                                 </td>
                             </tr>
                         @endforeach
@@ -47,10 +45,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        setInterval(() => {
-            location.reload();
-        }, 10000); // refresh otomatis tiap 10 detik
-    </script>
 @endsection
+

@@ -5,12 +5,12 @@
     {{-- <h1 class="h3 mb-4 text-gray-800">
         {{$title}}
     </h1> --}}
-    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#f0b493;">
+    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#A84C1D;">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <i class="fas fa-house-laptop fa-2x mr-3"></i>
                 <div>
-                    <h2 class="card-title mb-1">Selamat Datang, <span  style="color: #EA6C2C">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span> Di Divisi IT</h2>
+                    <h2 class="card-title mb-1">Selamat Datang, <span  style="color: #2D2D6BE5">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span> Di Divisi IT</h2>
                     <p class="text-white">Silahkan masukkan permasalahan perangkat anda</p>
                 </div>
             </div>
