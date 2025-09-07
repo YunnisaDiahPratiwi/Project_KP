@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pimpinan.appPim')
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">
@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="text-white" style="background-color:#2D2D6BE5;">
+                    <thead class="text-white" style="background-color:#32cd32;">
                         <tr>
                             <th>No</th>
                             <th>Nama Karyawan</th>
@@ -18,7 +18,6 @@
                             <th>Kategori Layanan</th>
                             <th>Detail Masalah</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

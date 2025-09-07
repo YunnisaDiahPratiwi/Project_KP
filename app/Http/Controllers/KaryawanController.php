@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengajuan;
+use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth;
 
 class KaryawanController extends Controller
@@ -69,6 +70,17 @@ class KaryawanController extends Controller
         );
 
         return view('daftarPengajuan', $data); // nama file view harus sesuai (lowercase)
+    }
+
+    public function daftarPengajuanPimpinan()
+    {
+        $data = array(
+            'title'                 => 'Daftar Pengajuan',
+            'menuDaftarPengajuan'   => 'active',
+            'pengajuans'            => Pengajuan::all(), // ambil semua data dari tabel pengajuans
+        );
+
+        return view('pimpinan.daftarPengajuanPimpinan', $data); // nama file view harus sesuai (lowercase)
     }
 
 }

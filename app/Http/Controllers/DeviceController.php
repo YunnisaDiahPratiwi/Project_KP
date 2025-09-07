@@ -7,17 +7,42 @@ use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+
 
 class DeviceController extends Controller
 {
-    public function device(){
-        $data = array(
-            'title'         => 'Data Perangkat',
-            'menuDevice'    => 'active',
-            'devices'        => Device::all(),
-        );
-        return view('device', $data);
+    // public function device(){
+    //     $data = array(
+    //         'title'         => 'Data Perangkat',
+    //         'menuDevice'    => 'active',
+    //         'devices'        => Device::all(),
+    //     );
+    //     return view('device', $data);
+    // }
+
+    public function device()
+    {
+        $devices = Device::all();
+
+        $data = [
+            'title'      => 'Data Perangkat',
+            'menuDevice' => 'active',
+            'devices'    => $devices,
+        ];
+
+        // cek role user
+        if (Auth::user()->role === 'teknisi') {
+            return view('device', $data);
+        } elseif (Auth::user()->role === 'pimpinan') {
+            return view('pimpinan.devicePimpinan', $data);
+        } else {
+            // fallback kalau role lain
+            return view('device', $data);
+        }
     }
+
+
     public function createDevice(){
         $data = array(
             'title'         => 'Tambah Data Perangkat',

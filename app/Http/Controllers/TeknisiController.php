@@ -31,6 +31,15 @@ class TeknisiController extends Controller
 
         return view('daftarPengajuan', $data);
     }
+    // public function daftarPengajuanPimpinan()
+    // {
+    //     $data = [
+    //         'title'      => 'Daftar Pengajuan',
+    //         'pengajuans' => Pengajuan::with('karyawan')->get(),
+    //     ];
+
+    //     return view('pimpinan.daftarPengajuanPimpinan', $data);
+    // }
 
     // Update status pengajuan (pending → diproses / selesai)
     public function updateStatus(Request $request, $id)

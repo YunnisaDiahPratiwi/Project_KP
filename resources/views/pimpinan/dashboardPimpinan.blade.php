@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('pimpinan.appPim')
 
 @section('content')
 
-    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#2D2D6BE5;">
+    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#32cd32;">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <i class="fas fa-house-laptop fa-2x mr-3"></i>
                 <div>
                     <h2 class="card-title mb-1">Selamat Datang, Divisi IT</h2>
                     <p class="card-text mb-0">Sistem Manajemen Instalasi dan Troubleshooting Layanan IT UPT Balai Yasa Lahat</p><br>
-                    <span class="badge badge-light font-weight-bold mt-3 mt-md-0" style="color: #2D2D6BE5;">
+                    <span class="badge badge-light font-weight-bold mt-3 mt-md-0" style="color: #32cd32;">
                         <i class="fas fa-user-tie mr-1"></i> Staff IT
                     </span>
                 </div>
@@ -61,7 +61,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" width="100%" cellspacing="0">
-                    <thead class="text-white" style="background-color:#2D2D6BE5;">
+                    <thead class="text-white" style="background-color:#32cd32;">
                         <tr>
                             <th>No</th>
                             <th>Nama Karyawan</th>
@@ -69,7 +69,6 @@
                             <th>IT Asset</th>
                             <th>Kategori Layanan</th>
                             <th>Detail Masalah</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

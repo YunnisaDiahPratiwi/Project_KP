@@ -29,16 +29,26 @@ class AuthController extends Controller
             'password.min' => 'Password Minimal 8 Karakter',
         ]);
 
-        $data = array(
-            'name'      => $request->name,
-            'password'      => $request->password,
-        );
+        $credentials = $request->only('name','password');
 
-        if (Auth::attempt($data)) {
-            return redirect()->route('dashboard')->with('success','Anda Berhasil Login');
-        }else{
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+
+            if ($user->role === 'teknisi') {
+                return redirect()->route('dashboard')->with('success','Login sebagai Teknisi');
+            }
+
+            if ($user->role === 'pimpinan') {
+                return redirect()->route('pimpinan.dashboardPimpinan')->with('success','Login sebagai Pimpinan');
+            }
+
+            // kalau role selain itu (misal null/ga keisi)
+            return redirect()->back()->with('error','Role tidak dikenali, hubungi admin.');
+        } else {
             return redirect()->back()->with('error','Username atau Password Salah');
         }
+
     }
 
 // === KARYAWAN LOGIN ===

@@ -15,10 +15,22 @@ class BeritaAcaraController extends Controller
         $data = array(
             "title"              => "Berita Acara Layanan IT",
             "menuBeritaAcara"    => "active",
-            "beritaAcara"        => BeritaAcara::with('device')->get(), // Assuming 'device' is the relationship defined in the BeritaAcara model
+            "beritaAcara"        => BeritaAcara::with('device')->get(),
         );
         return view('beritaAcara', $data);
     }
+
+    public function beritaAcaraPimpinan()
+    {
+        $data = [
+            "title"           => "Berita Acara Layanan IT",
+            "menuBeritaAcara" => "active",
+            "beritaAcara"     => BeritaAcara::with('device')->get(),
+        ];
+
+        return view('pimpinan.BApimpinan', $data);
+    }
+
 
     public function create(){
         $usedAssetsIds = BeritaAcara::pluck('it_asset_id')->toArray(); // Get all used it_asset_ids

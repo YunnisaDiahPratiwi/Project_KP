@@ -38,6 +38,7 @@ Route::middleware('checkLogin')->group(function () {
 
     // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard/pimpinan', [DashboardController::class, 'pimpinan'])->name('pimpinan.dashboardPimpinan');
 
     // route karyawan
     Route::get('pengajuan', [KaryawanController::class, 'index'])->name('pengajuan.index');
@@ -56,6 +57,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/destroy/{id}', [DeviceController::class, 'destroy'])->name('deleteDevice');
         Route::get('/excel', [DeviceController::class, 'excel'])->name('deviceExcel');
         Route::get('/pdf', [DeviceController::class, 'pdf'])->name('devicePdf');
+
+        Route::get('device/pimpinan', [DeviceController::class, 'device'])->name('devicePimpinan');
     });
 
     /*
@@ -73,6 +76,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/destroy/{id}', [BeritaAcaraController::class, 'destroy'])->name('deleteBa');
         Route::get('/excel', [BeritaAcaraController::class, 'excel'])->name('beritaAcaraExcel');
         Route::get('/pdf', [BeritaAcaraController::class, 'pdf'])->name('beritaAcaraPdf');
+
+        Route::get('pimpinan/beritaAcara', [BeritaAcaraController::class, 'beritaAcaraPimpinan'])->name('BApimpinan');
     });
 
     /*
@@ -86,12 +91,16 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/status', [KaryawanController::class, 'status'])->name('status.pengajuan');
         Route::get('/daftar', [KaryawanController::class, 'daftarPengajuan'])->name('daftarPengajuan');
         Route::get('/all', [PengajuanController::class, 'daftar'])->name('pengajuan.daftar');
+
+        Route::get('pimpinan/pengajuan', [KaryawanController::class, 'daftarPengajuanPimpinan'])->name('daftarPengajuanPimpinan');
     });
 
     Route::prefix('teknisi')->group(function () {
         Route::get('/dashboard', [TeknisiController::class, 'pengajuanBaru'])->name('teknisi.dashboard');
         Route::get('/pengajuan', [TeknisiController::class, 'daftarPengajuan'])->name('teknisi.pengajuan');
         Route::post('/pengajuan/{id}/update-status', [TeknisiController::class, 'updateStatus'])->name('teknisi.updateStatus');
+
+
     });
 
 });

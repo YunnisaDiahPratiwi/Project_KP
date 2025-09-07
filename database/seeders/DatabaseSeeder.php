@@ -19,6 +19,12 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name'      => 'Teknisi',
             'password'  => Hash::make('12345678'),
+            'role'      => 'teknisi'
+        ]);
+        User::create([
+            'name'      => 'Pimpinan',
+            'password'  => Hash::make('1tbylt25'),
+            'role'      => 'pimpinan'
         ]);
 
         $this->call([
