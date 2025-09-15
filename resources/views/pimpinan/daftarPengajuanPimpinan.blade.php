@@ -17,6 +17,7 @@
                             <th>IT Asset</th>
                             <th>Kategori Layanan</th>
                             <th>Detail Masalah</th>
+                            <th>Total Hari</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -26,9 +27,16 @@
                                 <td>{{ $i + 1 }}</td>
                                 <td>{{ $p->karyawan->nama }}</td>
                                 <td>{{ $p->karyawan->divisi }}</td>
-                                <td>{{ $p->it_asset }}</td>
+                                <td>{{ $p->device->it_asset ?? '-' }}</td>
                                 <td>{{ $p->kategori_layanan }}</td>
                                 <td>{{ $p->detail_masalah }}</td>
+                                <td>
+                                    @if ($p->status === 'selesai' && $p->tanggal_selesai !== null)
+                                        {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours($p->tanggal_selesai) / 24) }} hari
+                                    @else
+                                        {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours(now()) / 24) }} hari
+                                    @endif
+                                </td>
                                 <td>
                                     <span class="badge
                                         @if($p->status == 'pending') badge-danger

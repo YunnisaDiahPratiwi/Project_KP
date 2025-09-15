@@ -13,7 +13,6 @@ class BeritaAcara extends Model{
         'kategori_layanan',
         'jenis_layanan',
         'detail_pekerjaan',
-        'status',
         'keterangan'
     ];
 

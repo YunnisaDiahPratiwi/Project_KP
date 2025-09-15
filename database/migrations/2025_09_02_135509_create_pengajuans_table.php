@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('karyawan_id')->constrained()->onDelete('cascade');
-            $table->string('it_asset');
+            // Relasi ke devices
+            $table->foreignId('it_asset_id')
+                    ->constrained('devices')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->string('kategori_layanan');
             $table->text('detail_masalah');
             $table->enum('status', ['pending', 'diproses', 'selesai'])->default('pending');

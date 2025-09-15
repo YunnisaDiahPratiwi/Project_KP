@@ -17,6 +17,7 @@
                             <th>IT Asset</th>
                             <th>Kategori Layanan</th>
                             <th>Detail Masalah</th>
+                            <th>Total Hari</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -26,10 +27,26 @@
                                 <td>{{ $i + 1 }}</td>
                                 <td>{{ $p->karyawan->nama }}</td>
                                 <td>{{ $p->karyawan->divisi }}</td>
-                                <td>{{ $p->it_asset }}</td>
+                                <td>{{ $p->device->it_asset ?? '-' }}</td>
                                 <td>{{ $p->kategori_layanan }}</td>
                                 <td>{{ $p->detail_masalah }}</td>
                                 <td>
+                                    @if ($p->status === 'selesai' && $p->tanggal_selesai !== null)
+                                        {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours($p->tanggal_selesai) / 24) }} hari
+                                    @else
+                                        {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours(now()) / 24) }} hari
+                                    @endif
+                                </td>
+                                {{-- <td>
+                                    @if ($p->status === 'selesai')
+                                        {{ $p->total_hari }} hari
+                                    @elseif($p->tanggal_mulai !== null)
+                                        {{ \Carbon\Carbon::parse($p->tanggal_mulai)->diffInDays(now()) }} hari
+                                    @else
+                                        0 hari
+                                    @endif
+                                </td> --}}
+                                                                <td>
                                     @if ($p->status == 'pending')
                                         <span class="badge badge-danger">Pending</span>
                                     @elseif ($p->status == 'diproses')

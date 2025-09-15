@@ -15,7 +15,6 @@
         <div class="card-body">
             <form action="{{route('storeBa')}}" method="post">
             @csrf
-
             <div class="row mb-2">
                 <div class="col-xl-12">
                     <label class="form-label">
@@ -37,7 +36,6 @@
                     @enderror
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-xl-6 mb-2">
                     <label class="form-label">
@@ -64,7 +62,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xl-12 mb-2">
                     <label class="form-label">
@@ -83,7 +80,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xl-12 mb-2">
                     <label class="form-label">
@@ -98,7 +94,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xl-12 mb-2">
                     <label class="form-label">
@@ -113,27 +108,6 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-xl-12 mb-2">
-                    <label class="form-label">
-                        <span class="text-danger">*</span>
-                        Status :
-                    </label>
-                    <select name="status" class="form-control @error('status') is-invalid @enderror">
-                        <option selected disabled>-- Pilih Status Layanan --</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Diproses">Diproses</option>
-                        <option value="Selesai">Selesai</option>
-                    </select>
-                    @error('status')
-                        <small class="text-danger">
-                            {{ $message }}
-                        </small>
-                    @enderror
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-xl-12 mb-2">
                     <label class="form-label">
@@ -148,7 +122,6 @@
                     @enderror
                 </div>
             </div>
-
             <div>
                 <button type="submit" class="btn btn-sm btn-primary mt-3">
                     <i class="fas fa-save mr-2"></i>

@@ -20,4 +20,9 @@ class Device extends Model
     public function beritaAcara(){
         return $this->hasOne(BeritaAcara::class, 'it_asset_id');
     }
+
+    public function pengajuans()
+    {
+        return $this->hasMany(Pengajuan::class, 'it_asset_id');
+    }
 }

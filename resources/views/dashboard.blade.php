@@ -178,7 +178,7 @@
                                 <td>{{ $i + 1 }}</td>
                                 <td>{{ $p->karyawan->nama }}</td>
                                 <td>{{ $p->karyawan->divisi }}</td>
-                                <td>{{ $p->it_asset }}</td>
+                                <td>{{ $p->device->it_asset ?? '-' }}</td>
                                 <td>{{ $p->kategori_layanan }}</td>
                                 <td>{{ $p->detail_masalah }}</td>
                                 <td>

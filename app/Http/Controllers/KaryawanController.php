@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Device;
 use App\Models\Pengajuan;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,13 @@ class KaryawanController extends Controller
     public function index()
     {
         $karyawan = Auth::guard('karyawan')->user(); // ambil data karyawan yang login
+        $devices = Device::all();
 
         $data = array(
             "title"   => "Pengajuan Perangkat Bermasalah",
             'menuPengajuan'   => 'active',
             "karyawan" => $karyawan, // kirim ke view
+            "devices"  => $devices,
         );
 
         return view('karyawan.pengajuan', $data);
@@ -25,11 +28,17 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'it_asset' => 'required|string',
+            'it_asset_id' => 'required|exists:devices,id',
             'kategori_layanan' => 'required|string',
-            'detail_masalah' => 'required|string',
+            'kategori_layanan' => 'required',
             'detail_masalah' => 'required|string',
 
+        ],
+        [
+            'it_asset.required'  => 'IT Asset tidak boleh kosong.',
+            'it_asset.unique'    => 'IT Asset sudah ada.',
+            'kategori_layanan.required'       => 'kategori Layanan tidak boleh kosong.',
+            'detail_masalah.required'   => 'Detail Masalah tidak boleh kosong.',
         ]);
 
         // Tambahin info karyawan biar nyambung ke tabel pengajuans

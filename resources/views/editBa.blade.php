@@ -88,25 +88,6 @@
                 <div class="col-xl-12 mb-1">
                     <label class="form-label
                         <span class="text-danger">*</span>
-                        Status :
-                    </label>
-                    <select name="status" class="form-control @error('status') is-invalid @enderror">
-                        <option selected disabled>-- Pilih Status Layanan --</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Diproses">Diproses</option>
-                        <option value="Selesai">Selesai</option>
-                    </select>
-                    @error('status')
-                        <small class="text-danger">
-                            {{ $message }}
-                        </small>
-                    @enderror
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-xl-12 mb-1">
-                    <label class="form-label
-                        <span class="text-danger">*</span>
                         Detail Pekerjaan :
                     </label>
                     <textarea name="detail_pekerjaan" class="form-control @error('detail_pekerjaan') is-invalid @enderror">{{ $beritaAcara->detail_pekerjaan }}</textarea>

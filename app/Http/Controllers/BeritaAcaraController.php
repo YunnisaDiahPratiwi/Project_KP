@@ -66,7 +66,6 @@ class BeritaAcaraController extends Controller
             'kategori_layanan'   => 'required',
             'jenis_layanan'      => 'required',
             'detail_pekerjaan'   => 'required',
-            'status'             => 'required',
             'keterangan'         => 'required',
         ],[
 
@@ -76,7 +75,6 @@ class BeritaAcaraController extends Controller
             'kategori_layanan.required'   => 'Kategori layanan tidak boleh kosong.',
             'jenis_layanan.required'      => 'Jenis layanan tidak boleh kosong.',
             'detail_pekerjaan.required'   => 'Detail pekerjaan tidak boleh kosong.',
-            'status.required'             => 'Status tidak boleh kosong.',
             'keterangan.required'         => 'Keterangan tidak boleh kosong.',
         ]);
 
@@ -86,7 +84,6 @@ class BeritaAcaraController extends Controller
         $beritaAcara->kategori_layanan = $request->kategori_layanan;
         $beritaAcara->jenis_layanan    = $request->jenis_layanan;
         $beritaAcara->detail_pekerjaan = $request->detail_pekerjaan;
-        $beritaAcara->status           = $request->status;
         $beritaAcara->keterangan       = $request->keterangan;
         $beritaAcara->save();
 
@@ -113,7 +110,6 @@ class BeritaAcaraController extends Controller
             'kategori_layanan'   => 'required',
             'jenis_layanan'      => 'required',
             'detail_pekerjaan'   => 'required',
-            'status'             => 'required',
             'keterangan'         => 'required',
         ],[
             'it_asset_id.required'        => 'ID Aset IT tidak boleh kosong.',
@@ -123,7 +119,6 @@ class BeritaAcaraController extends Controller
             'kategori_layanan.required'   => 'Kategori layanan tidak boleh kosong.',
             'jenis_layanan.required'      => 'Jenis layanan tidak boleh kosong.',
             'detail_pekerjaan.required'   => 'Detail pekerjaan tidak boleh kosong.',
-            'status.required'             => 'Status tidak boleh kosong.',
             'keterangan.required'         => 'Keterangan tidak boleh kosong.',
         ]);
 
@@ -135,7 +130,6 @@ class BeritaAcaraController extends Controller
         $beritaAcara->kategori_layanan = $request->kategori_layanan;
         $beritaAcara->jenis_layanan    = $request->jenis_layanan;
         $beritaAcara->detail_pekerjaan = $request->detail_pekerjaan;
-        $beritaAcara->status           = $request->status;
         $beritaAcara->keterangan       = $request->keterangan;
         $beritaAcara->save();
 

@@ -37,8 +37,19 @@
                     </div>
                     <!-- IT Asset (input manual) -->
                     <div class="mb-3">
-                        <label for="it_asset" class="form-label">IT Asset</label>
-                        <input type="text" class="form-control" id="it_asset" name="it_asset">
+                        <label class="form-label">
+                            <span class="text-danger">*</span>
+                            IT Asset :
+                        </label>
+                        <select id="it_asset_id" name="it_asset_id" class="form-control">
+                            <option selected disabled>-- Pilih IT Asset --</option>
+                            @foreach ($devices as $item)
+                                <option value="{{ $item->id }}">{{ $item->it_asset }}</option>
+                            @endforeach
+                        </select>
+                        @error('it_asset_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="row">
@@ -46,11 +57,14 @@
                             <label class="form-label">
                                 Kategori Layanan :
                             </label>
-                            <select name="kategori_layanan" class="form-control">
+                            <select name="kategori_layanan" class="form-control @error('kategori_layanan') is-invalid @enderror" required>
                                 <option selected disabled>-- Pilih Kategori Layanan --</option>
                                 <option value="Instalasi">Instalasi</option>
                                 <option value="Troubleshooting">Troubleshooting</option>
                             </select>
+                            @error('kategori_layanan')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
 

@@ -1,4 +1,4 @@
-    <script src="{{ asset ('sdadmin2/vendor/jquery/jquery.min.js')}}"></script>
+    {{-- <script src="{{ asset ('sdadmin2/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{ asset ('sdadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset ('sdadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset ('sdadmin2/js/sb-admin-2.min.js') }}"></script>
@@ -6,14 +6,33 @@
     <script src="{{asset('sdadmin2/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('sdadmin2/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('sdadmin2/js/demo/datatables-demo.js')}}"></script>
+    <script src="{{asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script> --}}
+
+    <script src="{{ asset('sdadmin2/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('sdadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('sdadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('sdadmin2/js/sb-admin-2.min.js') }}"></script>
+
+    <!-- DataTables (cukup 1x) -->
+    <script src="{{asset('sdadmin2/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('sdadmin2/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('sdadmin2/js/demo/datatables-demo.js')}}"></script>
+
+    <!-- SweetAlert -->
     <script src="{{asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#it_asset_id').select2({
+                placeholder: "-- Pilih IT Asset --",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
 
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
 
     @session('success')
         <script>
@@ -34,6 +53,7 @@
         });
         </script>
     @endsession
+
 
 </body>
 
