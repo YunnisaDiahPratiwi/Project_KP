@@ -5,12 +5,13 @@
     {{-- <h1 class="h3 mb-4 text-gray-800">
         {{$title}}
     </h1> --}}
-    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#A84C1D;">
+    <div class="text-white mb-4" style="border-radius: 1rem; background-color:#BA5826;">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
             <div class="d-flex align-items-center">
                 <i class="fas fa-house-laptop fa-2x mr-3"></i>
                 <div>
-                    <h2 class="card-title mb-1">Selamat Datang, <span  style="color: #2D2D6BE5">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span> Di Divisi IT</h2>
+                    <h2 class="card-title mb-1">Selamat Datang, <span  style="color: #2D2D6B">{{ Auth::guard('karyawan')->user()->nama ?? 'Guest' }}</span></h2>
+
                     <p class="text-white">Silahkan masukkan permasalahan perangkat anda</p>
                 </div>
             </div>
@@ -21,7 +22,6 @@
         <div class="card-body">
             <form action="{{ route('pengajuan.store') }}" method="POST">
                     @csrf
-
                     <!-- Nama Karyawan -->
                     <div class="row mb-3">
                     <div class="col-xl-6 mb-1">
@@ -35,7 +35,7 @@
                         <input type="text" class="form-control" id="divisi" name="divisi" value="{{ $karyawan->divisi }}" readonly>
                     </div>
                     </div>
-                    <!-- IT Asset (input manual) -->
+                    <!-- IT Asset -->
                     <div class="mb-3">
                         <label class="form-label">
                             <span class="text-danger">*</span>
@@ -74,7 +74,7 @@
                         <textarea class="form-control" id="detail_masalah" name="detail_masalah" rows="4" placeholder="Jelaskan masalah yang dialami"></textarea>
                     </div>
 
-                    <button type="submit" class="btn" style="background-color:#EA6C2C; border:none; color:#fff;">
+                    <button type="submit" class="btn" style="background-color:#BA5826; border:none; color:#fff;">
                         Submit
                     </button>
 

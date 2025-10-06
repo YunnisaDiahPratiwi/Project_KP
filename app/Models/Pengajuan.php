@@ -14,6 +14,13 @@ class Pengajuan extends Model
         'karyawan_id', 'it_asset_id', 'kategori_layanan', 'detail_masalah', 'total_hari', 'status'
     ];
 
+    protected $casts = [
+        'tanggal_mulai'   => 'datetime',
+        'tanggal_selesai' => 'datetime',
+        'created_at'      => 'datetime',
+        'updated_at'      => 'datetime',
+    ];
+
     public function karyawan()
     {
         return $this->belongsTo(Karyawan::class, 'karyawan_id');

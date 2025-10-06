@@ -17,11 +17,24 @@
             @csrf
             <div class="row mb-2">
                 <div class="col-xl-12">
+                    {{-- <label class="form-label">
+                            <span class="text-danger">*</span>
+                            IT Asset :
+                        </label>
+                        <select id="it_asset_id" name="it_asset_id" class="form-control">
+                            <option selected disabled>-- Pilih IT Asset --</option>
+                            @foreach ($device as $item)
+                                <option value="{{ $item->id }}">{{ $item->it_asset }}</option>
+                            @endforeach
+                        </select>
+                        @error('it_asset_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror --}}
                     <label class="form-label">
                         <span class="text-danger">*</span>
                         IT Asset :
                     </label>
-                    <select name="it_asset_id" class="form-control @error('it_asset_id') is-invalid @enderror">
+                    <select id="it_asset_id" name="it_asset_id" class="form-control">
                         <option selected disabled>-- Pilih IT Asset --</option>
                         @foreach ($device as $item)
                             <option value="{{ $item->id }}" {{ old('it_asset_id') == $item->id ? 'selected' : '' }}>

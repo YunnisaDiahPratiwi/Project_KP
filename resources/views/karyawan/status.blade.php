@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="text-white" style="background-color:#A84C1D;">
+                    <thead class="text-white" style="background-color:#BA5826;">
                         <tr>
                             <th>No</th>
                             <th>Nama Karyawan</th>
@@ -32,21 +32,26 @@
                                 <td>{{ $p->detail_masalah }}</td>
                                 <td>
                                     @if ($p->status === 'selesai' && $p->tanggal_selesai !== null)
+                                        {{ floor(
+                                            \Carbon\Carbon::parse($p->created_at)
+                                                ->diffInHours(\Carbon\Carbon::parse($p->tanggal_selesai)) / 24
+                                        ) }} hari
+                                    @else
+                                        {{ floor(
+                                            \Carbon\Carbon::parse($p->created_at)
+                                                ->diffInHours(now()) / 24
+                                        ) }} hari
+                                    @endif
+                                </td>
+
+                                {{-- <td>
+                                    @if ($p->status === 'selesai' && $p->tanggal_selesai !== null)
                                         {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours($p->tanggal_selesai) / 24) }} hari
                                     @else
                                         {{ floor(\Carbon\Carbon::parse($p->created_at)->diffInHours(now()) / 24) }} hari
                                     @endif
-                                </td>
-                                {{-- <td>
-                                    @if ($p->status === 'selesai')
-                                        {{ $p->total_hari }} hari
-                                    @elseif($p->tanggal_mulai !== null)
-                                        {{ \Carbon\Carbon::parse($p->tanggal_mulai)->diffInDays(now()) }} hari
-                                    @else
-                                        0 hari
-                                    @endif
                                 </td> --}}
-                                                                <td>
+                                    <td>
                                     @if ($p->status == 'pending')
                                         <span class="badge badge-danger">Pending</span>
                                     @elseif ($p->status == 'diproses')

@@ -1,10 +1,10 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#2D2D6BE5;">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#2D2D6B; position: fixed; top: 80px; left: 0; height: calc(100% - 80px); overflow-y: auto;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center d-flex" href="index.html">
-                    <img src="{{ asset('img/logo.png') }}" style="position: absolute;" width="120" alt="Logo">
-            </a>
+            {{-- <a class="sidebar-brand d-flex align-items-center justify-content-center d-flex" href="index.html">
+
+            </a> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">

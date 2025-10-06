@@ -23,7 +23,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                 {{-- <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0"> --}}
-                <thead class="text-white" style="background-color:#32cd32;">
+                <thead class="text-white" style="background-color:#2D6B36;">
                     <tr class="text-center">
                         <th>No</th>
                         <th>IT Asset</th>

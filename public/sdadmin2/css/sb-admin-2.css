@@ -9804,6 +9804,8 @@ a:focus {
 
 #wrapper #content-wrapper #content {
   flex: 1 0 auto;
+  margin-left: 224px; /* ukuran default sidebar SB Admin 2 */
+    padding-top: 80px;  /* biar gak ketiban topbar */
 }
 
 .container,

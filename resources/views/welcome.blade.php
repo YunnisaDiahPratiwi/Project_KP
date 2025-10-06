@@ -28,7 +28,9 @@
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-overlay">
-      <h1>WELCOME TO DIVISI IT <br> UPT BALAI YASA LAHAT</h1>
+      <h2>WELCOME TO </h2>
+        <h1>Sistem Manajemen Troubleshooting dan Instalasi Layanan IT</h1>
+        <h3> UPT BALAI YASA LAHAT</h3><br>
       <p class="tagline">Safety and Sustainable</p><br><br>
       <a href="{{route('pilihrole')}}" class="btn-primary">Login</a>
     </div>
@@ -123,7 +125,7 @@
         <div class="team-member">
             <img src="{{ asset('img/profile.jpeg') }}" alt="Ares Pambudi Arto">
             <h4><strong>Ares Pambudi Arto</strong></h4>
-            <p>Team Leader Infrastructure Support</p>
+            <p>Team Leader Aplication Support</p>
         </div>
         </div>
     </section>
